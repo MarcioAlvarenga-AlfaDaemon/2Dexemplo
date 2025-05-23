@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
+    background-color: #22a019c4;
     padding: 15px 20px;
-    color: rgb(27, 169, 20);
+    color: rgb(15, 15, 15);
 }
 
 .cabecalho_logo {
