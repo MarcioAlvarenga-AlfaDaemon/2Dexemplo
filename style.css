@@ -51,18 +51,18 @@
 
     .menu ul {
     flex-direction: column;
-    width: 100%;
+    width: 200%;
     margin: 0;
     padding: 0;    
     }
    
     .menu li {
-        width: 100%;
+        width: 200%;
     }
 
     .menu a{
         display: block;
-        width: 100%;
+        width: 200%;
         margin: 0;
         padding: 0;
     }
