@@ -124,15 +124,16 @@ body {
     align-items: center;
     text-align: center;
     
-    padding-top: 12.5rem; /* Padding base para desktop */
-    padding-bottom: 12.5rem; 
-
-    /* PROPRIEDADES DA IMAGEM DE FUNDO (Aplicadas por padrão em todas as resoluções) */
-    background-image: url('img/switzerland-6487204_1920.jpg'); /* MUDANÇA AQUI: Nova imagem de fundo */
+    /* Configurações padrão para a imagem de fundo */
+    background-image: url('img/switzerland-6487204_1920.jpg'); /* IMAGEM PADRÃO */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Para efeito de parallax */
+
+    /* Padding padrão, será sobrescrito pelas media queries se necessário */
+    padding-top: 12.5rem; 
+    padding-bottom: 12.5rem; 
 
     /* PROPRIEDADES PARA A TRANSPARÊNCIA */
     position: relative; /* Essencial para o pseudo-elemento ::before */
@@ -268,10 +269,10 @@ body {
 
 /* --- Responsividade Geral --- */
 
-/* Mídias para telas pequenas (ex: 368px e abaixo) */
-@media (max-width: 767px) { /* Tudo abaixo de 768px */
+/* Mídias para telas menores (até 767px) */
+@media (max-width: 767px) { 
     body {
-        padding-top: 100px; /* Ajuste para cabeçalho menor em mobile */
+        padding-top: 100px; 
     }
 
     .container-header {
@@ -293,7 +294,6 @@ body {
         margin-right: 0;
     }
 
-    /* Ocultar a logo em telas muito pequenas */
     @media (max-width: 568px) {
         .cabecalho__logo {
             display: none;
@@ -327,6 +327,10 @@ body {
 
     .principal {
         padding: 60px 15px; /* Padding ajustado para telas menores */
+        /* MANTIDO SE NECESSÁRIO: A imagem padrão já está definida, mas se você QUISER uma imagem diferente APENAS para mobile, descomente e ajuste */
+        /* background-image: url('../img/sua-imagem-mobile.jpg'); */
+        /* background-size: cover; */
+        /* background-repeat: no-repeat; */
     }
 
     .principal__titulo { 
@@ -368,10 +372,35 @@ body {
     }
 }
 
+/* @media screen and (min-width: 368px) { */
+/* Este breakpoint de 368px está dentro do range de 767px,
+   então as regras do @media (max-width: 767px) acima já o cobrem.
+   Se você quiser uma imagem ESPECÍFICA para 368px e acima,
+   mas ainda abaixo de 768px, podemos colocar aqui. */
+/* Se a intenção era aplicar campo.jpg para telas a partir de 368px ATÉ 767px,
+   então descomente e use o código abaixo. */
+@media screen and (min-width: 368px) and (max-width: 767px) {
+    .principal {
+        background-image: url(../img/campo.jpg); /* IMAGEM ESPECÍFICA PARA 368px A 767px */
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 3.25rem; /* Ajusta o padding para esta faixa */
+        /* background-attachment: scroll; Pode mudar de fixed para scroll se quiser em mobile */
+    }
+}
+
+
 /* Mídias para telas maiores (ex: 768px e acima) */
 @media screen and (min-width: 768px) {
     .principal__texto {
-        max-width: 600px; /* Mantém a largura máxima do texto como você tinha */
+        max-width: 600px; 
+    }
+    .principal {
+        /* A imagem padrão 'switzerland-6487204_1920.jpg' já está definida. */
+        /* Se você quiser a imagem 'campo.jpg' para 768px e acima, então descomente a linha abaixo. */
+        /* background-image: url(img/campo.jpg); */ 
+        /* background-size: cover; */
+        padding-top: 3.25rem; /* Ajusta o padding para telas maiores */
     }
 }
 
@@ -384,6 +413,15 @@ body {
     .principal__titulo {
         font-size: 3.25rem;
         margin-bottom: 2rem;
+    }
+
+    .principal {
+        /* Se a imagem 'campo.jpg' for apenas para telas entre 368px e 767px,
+           então aqui DEVE voltar para 'switzerland-6487204_1920.jpg'
+           ou manter a imagem padrão definida fora das media queries. */
+        background-image: url('img/switzerland-6487204_1920.jpg'); /* Retorna para a imagem suíça em telas grandes */
+        background-size: cover;
+        padding-top: 12.5rem; /* Padding original para desktop grande */
     }
 
     /* Sustentabilidade em desktop (retorna para layout lado a lado) */
