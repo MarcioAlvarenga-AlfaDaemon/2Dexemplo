@@ -4,87 +4,97 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif; /* Você pode mudar para uma fonte do Google Fonts, por exemplo */
-    background-color: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
-    line-height: 1.6; /* Espaçamento entre linhas padrão para o corpo do texto */
-    color: #333; /* Cor de texto padrão */
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    line-height: 1.6;
+    color: #333;
+    /* Adicionar padding-top ao body para que o conteúdo não fique escondido
+       por baixo do cabeçalho fixo. O valor deve ser a altura do seu cabeçalho.
+       Você pode precisar ajustar este valor dependendo da altura exata do seu cabeçalho. */
+    padding-top: 120px; /* Um valor inicial, ajuste conforme a altura final do seu cabeçalho */
 }
 
 /* O container para centralizar o CONTEÚDO dentro de seções de largura total */
 .container {
-    max-width: 1200px; /* Largura máxima do seu conteúdo */
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 20px; /* Padding interno para o conteúdo não colar nas bordas */
-}
-
-/* --- Estilizando o Cabeçalho --- */
-.cabecalho {
-    background-color: #22a019c4; /* Seu verde com transparência */
-    padding: 20px 0; /* Padding vertical, o padding horizontal será dado pelo container-header */
-    color: #fff; /* Cor do texto para branco */
-    /* Não aplicamos display: flex aqui diretamente, mas sim no .container-header */
-}
-
-.container-header { /* Nova classe para o container interno do cabeçalho */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px; /* Padding interno para o conteúdo do cabeçalho */
-    display: flex; /* Habilita o Flexbox */
-    justify-content: space-between; /* Distribui os itens com espaço entre eles */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    padding: 0 20px;
+}
+
+/* --- Estilizando o Cabeçalho FIXO --- */
+.cabecalho {
+    background-color: #22a019c4; /* Seu verde com transparência */
+    padding: 20px 0; /* Padding vertical */
+    color: #fff;
+    
+    /* PROPRIEDADES PARA TORNAR O CABEÇALHO FIXO */
+    position: fixed; /* Fixa o elemento na tela */
+    top: 0;          /* Alinha ao topo da tela */
+    width: 100%;     /* Faz com que ele ocupe toda a largura */
+    z-index: 1000;   /* Garante que ele fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidade */
+}
+
+.container-header { /* O container interno do cabeçalho mantém o conteúdo limitado e centralizado */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .cabecalho h1 {
-    margin: 0; /* Remove a margem padrão do h1 */
-    font-size: 1.6em; /* Tamanho ajustado para o título do cabeçalho */
-    white-space: nowrap; /* Impede que o título quebre a linha, se possível */
+    margin: 0;
+    font-size: 1.6em;
+    white-space: nowrap;
 }
 
 .cabecalho_logo {
-    height: 80px; /* Altura da logo, você pode ajustar */
-    width: auto; /* Mantém a proporção da imagem */
-    margin: 0 20px; /* Espaçamento ao redor da logo */
+    height: 80px;
+    width: auto;
+    margin: 0 20px;
 }
 
 /* --- Estilo do Menu (Links de Navegação) --- */
 .menu ul {
-    list-style: none; /* Remove os marcadores de lista */
-    margin: 0; /* Remover margem padrão da ul */
-    padding: 0; /* Remover padding padrão da ul */
-    display: flex; /* Usa Flexbox para alinhar os itens horizontalmente */
-    gap: 25px; /* Espaçamento entre os itens do menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
 }
 
 .menu a {
     font-size: 1.1em;
     color: white;
     text-decoration: none;
-    padding: 8px 15px; /* Padding interno para a área clicável do botão */
-    transition: all 0.3s ease; /* Transição para todas as propriedades no hover */
-    border: 1px solid white; /* Borda branca de 1px */
-    border-radius: 4px; /* Bordas levemente arredondadas */
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    border: 1px solid white;
+    border-radius: 4px;
 }
 
 .menu a:hover {
-    background-color: #f7e1ee; /* Cor de fundo no hover */
-    color: #333; /* Cor do texto no hover */
-    border-color: #f7e1ee; /* Mudar a cor da borda no hover para a mesma do background */
+    background-color: #f7e1ee;
+    color: #333;
+    border-color: #f7e1ee;
 }
 
 /* --- Estilizando a Seção Principal com Imagem de Fundo --- */
 .principal {
     text-align: center;
-    padding: 100px 20px; /* Mais padding para espaçamento superior/inferior */
-    background-image: url('img/background-por-do-sol.jpg'); /* **ATENÇÃO:** Mude para o caminho da sua imagem */
-    background-size: cover; /* Faz a imagem cobrir toda a área */
-    background-position: center center; /* Centraliza a imagem */
-    color: white; /* Texto branco para contraste com a imagem escura */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para o texto para melhor leitura */
+    padding: 100px 20px;
+    background-image: url('img/background-por-do-sol.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .principal_título {
-    font-size: 3em; /* Tamanho maior para o título principal */
+    font-size: 3em;
     margin-bottom: 15px;
 }
 
@@ -94,55 +104,54 @@ body {
 }
 
 .principal_botao {
-    display: inline-block; /* Para poder aplicar padding e margin */
-    background-color: #007bff; /* Cor de botão azul (exemplo) */
+    display: inline-block;
+    background-color: #007bff;
     color: #fff;
     text-decoration: none;
     padding: 15px 30px;
-    border-radius: 5px; /* Bordas arredondadas */
+    border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* Transição suave para o hover */
+    transition: background-color 0.3s ease;
 }
 
 .principal_botao:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
 }
 
 /* --- Estilizando a Seção de Sustentabilidade --- */
 .sustentabilidade-section {
     padding: 60px 20px;
-    display: flex; /* Usa Flexbox para o layout da seção */
-    gap: 30px; /* Espaçamento entre o texto e a imagem */
-    align-items: flex-start; /* Alinha o topo dos itens flex */
-    /* max-width e margin auto já vêm da classe .container aplicada no HTML */
-    margin-top: 40px; /* Espaço acima da seção */
-    margin-bottom: 40px; /* Espaço abaixo da seção */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .sustentabilidade-content {
-    flex: 2; /* Faz o conteúdo textual ocupar mais espaço */
-    min-width: 300px; /* Largura mínima para o conteúdo */
+    flex: 2;
+    min-width: 300px;
 }
 
 .sustentabilidade-subtitulo {
-    font-style: italic; /* Adiciona um estilo itálico ao subtítulo */
+    font-style: italic;
     color: #555;
     margin-bottom: 10px;
 }
 
 .sustentabilidade-image {
-    flex: 1; /* Faz a imagem ocupar menos espaço */
-    max-width: 400px; /* Largura máxima para a imagem */
-    min-width: 250px; /* Largura mínima para a imagem */
+    flex: 1;
+    max-width: 400px;
+    min-width: 250px;
 }
 
 .sustentabilidade-image img {
-    max-width: 100%; /* Garante que a imagem seja responsiva */
+    max-width: 100%;
     height: auto;
-    display: block; /* Remove o espaço extra abaixo da imagem */
-    border-radius: 8px; /* Bordas arredondadas para a imagem */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para a imagem */
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sustentabilidade-section h2 {
@@ -180,30 +189,35 @@ body {
 
 /* --- Responsividade Geral --- */
 @media (max-width: 768px) {
+    /* Ajuste o padding-top do body para telas menores se o cabeçalho mudar de altura */
+    body {
+        padding-top: 100px; /* Um valor menor para cabeçalho em mobile */
+    }
+
     .container-header {
-        flex-direction: column; /* Empilha o título, logo e menu verticalmente */
-        align-items: center; /* Centraliza horizontalmente os itens empilhados */
-        padding: 20px; /* Ajusta o padding para telas menores */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
     }
 
     .cabecalho h1 {
         font-size: 1.4em;
-        margin-bottom: 15px; /* Mais espaço abaixo do título */
+        margin-bottom: 15px;
         text-align: center;
     }
 
     .cabecalho_logo {
         height: 60px;
-        margin-bottom: 15px; /* Mais espaço abaixo da logo */
-        margin-left: 0; /* Remove margem lateral em mobile */
-        margin-right: 0; /* Remove margem lateral em mobile */
+        margin-bottom: 15px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .menu ul {
         flex-direction: column;
         gap: 8px;
         width: 100%;
-        text-align: center; /* Centraliza os itens do menu em mobile */
+        text-align: center;
     }
 
     .menu li {
@@ -212,9 +226,9 @@ body {
 
     .menu a {
         font-size: 1em;
-        padding: 10px 0; /* Padding vertical para os links */
-        width: 100%; /* Ocupa a largura total no mobile */
-        box-sizing: border-box; /* Garante que padding não adicione largura */
+        padding: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .principal {
@@ -234,19 +248,19 @@ body {
     }
 
     .sustentabilidade-section {
-        flex-direction: column; /* Empilha o texto e a imagem em telas menores */
+        flex-direction: column;
         align-items: center;
         padding: 40px 15px;
     }
 
     .sustentabilidade-content,
     .sustentabilidade-image {
-        min-width: unset; /* Remove o min-width para flexibilidade */
-        width: 100%; /* Ocupa a largura total */
+        min-width: unset;
+        width: 100%;
     }
 
     .sustentabilidade-image {
-        margin-top: 20px; /* Espaço entre o texto e a imagem empilhados */
+        margin-top: 20px;
     }
 
     .servicos-section,
