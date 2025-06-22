@@ -2,13 +2,13 @@
 
 /* --- Variáveis CSS --- */
 :root {
-    --branco: #ffffff;
+    --branco: #FFF;
     --preto: #000;
-    --preto: #000;
+    --cinza-escuro: #5e5d53;
     --cinza-claro:#9c9992;
     --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
     --fundo-pagina: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
-    --cor-texto-padrao: #000000; /* Cor de texto padrão */
+    --cor-texto-padrao: #333; /* Cor de texto padrão */
 
     --fonte-principal: 'Open Sans', sans-serif; /* Usando Open Sans */
     --fonte-titulo: 'Montserrat', sans-serif; /* Usando Montserrat */
@@ -59,7 +59,7 @@ body {
     align-items: center;
     background-color: var(--verde-cabecalho); /* Seu verde com transparência */
     padding: 20px 0; /* Padding vertical */
-    color: var(--branco);
+    color: var(--branco); /* Cor do texto padrão para itens dentro do cabeçalho */
     
     /* PROPRIEDADES PARA TORNAR O CABEÇALHO FIXO */
     position: fixed; /* Fixa o elemento na tela */
@@ -82,7 +82,7 @@ body {
 .cabecalho h1 { /* Título principal do site no cabeçalho */
     margin: 0; 
     font-size: 1.6em;
-    color: var(--branco);
+    color: var(--preto); /* MUDANÇA: Cor do título do cabeçalho agora é preto */
     white-space: nowrap; /* Impede que o título quebre a linha */
 }
 
@@ -103,7 +103,7 @@ body {
 
 .menu a {
     font-size: 1.1em;
-    color: var(--branco);
+    color: var(--branco); /* Links do menu continuam brancos */
     text-decoration: none;
     padding: 8px 15px; /* Padding interno para a área clicável do botão */
     transition: all 0.3s ease; /* Transição para todas as propriedades no hover */
@@ -122,7 +122,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--branco);
+    /* Remover color: var(--branco); daqui para que os elementos internos possam ser pretos */
     text-align: center;
     
     padding-top: 12.5rem; 
@@ -157,7 +157,7 @@ body {
 .principal__texto, 
 .principal__botao { 
     position: relative;
-    z-index: 2; /* Coloca esses elementos acima do overlay */
+    z-index: 2; 
 }
 
 .principal__titulo {
@@ -167,12 +167,16 @@ body {
     text-transform: uppercase;
     padding-top: 6rem;
     margin-bottom: 1.5rem;
+    color: var(--preto); /* MUDANÇA: Cor do título da seção principal agora é preto */
+    text-shadow: none; /* REMOVIDO: sombra para melhor visibilidade do preto */
 }
 
 .principal__texto {
     font-size: 1.25rem;
     line-height: normal;
     margin: 0 auto 2.5rem;
+    color: var(--preto); /* MUDANÇA: Cor do texto da seção principal agora é preto */
+    text-shadow: none; /* REMOVIDO: sombra para melhor visibilidade do preto */
 }
 
 /* --- Estilizando a Seção de Sustentabilidade --- */
