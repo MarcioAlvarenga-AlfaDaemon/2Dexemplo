@@ -8,7 +8,7 @@
     --cinza-claro:#9c9992;
     --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
     --fundo-pagina: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
-    --cor-texto-padrao: #333; /* Cor de texto padrão */
+    --cor-texto-padrao: #000000; /* Cor de texto padrão */
 
     --fonte-principal: 'Open Sans', sans-serif; /* Usando Open Sans */
     --fonte-titulo: 'Montserrat', sans-serif; /* Usando Montserrat */
