@@ -1,309 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=Rakkas&display=swap');
+
+/* Variáveis */
 :root {
-    --branco: #FFF;
-    --preto: #000;
-    --cinza-escuro: #5e5d53;
-    --cinza-claro:#929c94;
-
-    --montserrat: 'Montserrat', sans-serif;
+    --primary-color: #026773;
+    --secondary-color: #3CA6A6;
+    --text-color: #024959;
+    --background-color: #F2E3D5;
+    --button-hover: #012E40;
+    --font-body: "Chocolate Classical Sans", serif;
+    --font-titulo: "Rakkas", serif;
 }
 
+/* código omitido */
+/* código omitido */
 
-body {
-    font-family: 'Open Sans', sans-serif;
-}
-
-
-.container {
-   padding-right: 6%;
-    padding-left: 6%;
-
-}
-
-.botao {
-    text-align: center;
-
-    display: block;
-
-    width: 100%;
-    max-width: 220px;
-
-    box-sizing: border-box;
-
-    padding: 1rem 2rem;
-
-    border: 1px solid var(--branco);
-    border-radius: 5px;
-}
-
-
-
-.cabecalho{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000;
+/* Reset */
+* {
+    margin: 0;
     padding: 0;
-    width: 100%;
-    position: fixed;
-    top: 0;
-
-  }
-
-  .cabecalho__logo {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    margin-left: 4rem;
-    height:4rem;
-  }
-
-   .menu ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  text-align: left;
-  }
-
-  .menu a {
-    font-size: 1.2em;
-    color: white;
-    text-decoration: none;
-    padding: 2rem;
-    text-align: left;
-  }
-
-  .menu a:hover {
-    background-color: #21131a;
-    border-radius: 4px;
-    color: #d2cdcd;
-
-  }
-
-  /*seção principal inicio*/
-
-.principal{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    color: var(--branco);
-    text-align: center;
-
-    background-color: var(--preto);
-
-    padding-top: 12.5rem;
-    padding-bottom: 12.5rem;
-}
-
-.principal__titulo {
-    font-family: var(--montserrat);
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding-top: 6rem;
-    margin-bottom: 1.5rem;
-}
-
-.principal__texto {
-    font-size: 1.25rem;
-    line-height: normal;
-
-    margin: 0 auto 2.5rem;
-}
-
-.principal__botao {
-    width: 100%;
-}
-
-/**/
-
-/* SEGUNDA SECAO */
-
-
-.segunda-secao__conteudo {
-   
-    padding: 50px;
-    border-radius: 25px;
-    line-height: 25px;
-    background-color: var(--branco);
-    box-shadow: 0 0 10px 0 var(--cinza-escuro);
     box-sizing: border-box;
-    width: calc(100% - 50px);
-      
-    margin: 0 25px 50px 25px;
-    
+    font-family: var(--font-body);
 }
 
-.segunda-secao__conteudo h2 {
-    font-family: var(--fonte-02);
-    font-size: 42px;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    text-align: center;
+/* Corpo da página */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.segunda-secao__conteudo h3 {
-    font-size: 16px;
-    letter-spacing: 2.5px;
-    margin-bottom: 50px;
-    text-align: center;
+h3 {
+    margin-top: 25px;
 }
 
-.segunda-secao__conteudo h3::before,
-.segunda-secao__conteudo h3::after {
-    content: " - ";
+p {
+    margin-top: 20px;
 }
 
-/**/
-
-
-/**/
-/*seção Responsivo*/
-
-@media screen and (min-width: 368px) {
-    .principal {
-        background-image: url(../img/campo.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding-top: 3.25rem;
-    }
+img {
+    max-width: 90%;
 }
 
-@media screen and (min-width: 768px) {
-    .principal__texto {
-        max-width: 600px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .container {
-        padding-left: calc((100% - 940px)/2);
-        padding-right: calc((100% - 940px)/2);
-    }
-
-    .principal__titulo {
-        font-size: 3.25rem;
-        margin-bottom: 2rem;
-    }
-    .principal {
-        background-image: url(img/campo.jpg);
-        background-size: cover;
-
-        padding-top: 3.25rem;
-    }
-
-}
-  /* Responsivo para cabeçalho */
-  @media (max-width: 568px) {
-    .cabecalho {
-      flex-direction: column;
-      align-items: flex-start;
-
-    }
-  .cabecalho__logo{
-    display: none;
-  }
-    .menu ul {
-      flex-direction: column;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    .menu li {
-      width: 100%;
-
-    }
-
-    .menu a {
-      display: block;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-  .principal {
-        background-image: url(img/campo.jpg);
-        background-size: cover;
-
-        padding-top: 3.25rem;
-    }
-  }
-
-
-  /**/
-  .sustent3 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
- /*.sustent4 {
-   position: absolute;
-    display: flex;
-  justify-content: center;
- margin: 60px;
-
-  border: 3px solid #73AD21;
-  padding: 20px;
-}*/
-
-.sustent3__titulo {
-    color: var(--cinza-escuro);
-    font-weight: 700;
-    font-size: 1.5rem;
-    font-family: var(--montserrat);
-    text-transform: uppercase;
-    text-align: center;
-
-    margin-bottom: 1.25rem;
-}
-
-.sustent3__texto {
-    line-height: normal;
-
-    margin-bottom: 1rem;
-}
-
-/*.sustent4__texto {
-    text-align: right;
-width: 50%;
-    margin-bottom: 1rem;
-
-}*/
-
-.sustent3__imagem {
-    display: none;
-    width: 400px;
-    height: 300px;
-
-}
-/*.sustent4__imagem {
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}*/
-
-@media screen and (min-width: 1024px) {
-    .sustent3 {
-        display: flex;
-    }
-
-    .sustent3__conteudo {
-        margin-right: 3rem;
-    }
-
-    .sustent3__titulo {
-        text-align: left;
-    }
-
-    .sustent3__texto--divisao {
-        border-bottom: 1px solid var(--cinza-medio);
-
-        padding-bottom: 1.5rem;
-    }
-
-    .sustent3__imagem {
-        display: block;
-    }
-}
+/* código omitido */
