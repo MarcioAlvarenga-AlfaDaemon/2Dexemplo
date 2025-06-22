@@ -18,8 +18,7 @@
 body {
     margin: 0;
     padding: 0; 
-    /* padding-top é crucial para o cabeçalho fixo. Ajuste conforme a altura final do seu cabeçalho. */
-    padding-top: 120px; /* Um valor inicial, ajuste se a altura do seu cabeçalho mudar */
+    padding-top: 120px; 
     font-family: var(--fonte-principal);
     background-color: var(--fundo-pagina);
     line-height: 1.6;
@@ -27,28 +26,28 @@ body {
 }
 
 .container {
-    max-width: 1200px; /* Largura máxima do seu conteúdo */
-    margin: 0 auto; /* Centraliza o container */
-    padding: 0 20px; /* Padding interno para o conteúdo não colar nas bordas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .botao {
     text-align: center;
-    display: inline-block; /* Melhor para botões em linha com outros elementos */
+    display: inline-block;
     max-width: 220px;
     box-sizing: border-box;
     padding: 1rem 2rem;
     border: 1px solid var(--branco);
     border-radius: 5px;
-    text-decoration: none; /* Remove sublinhado padrão dos links */
-    color: var(--branco); /* Cor do texto do botão */
-    background-color: #007bff; /* Cor de fundo padrão para o botão (exemplo) */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
+    text-decoration: none;
+    color: var(--branco);
+    background-color: #007bff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .botao:hover {
-    background-color: #0056b3; /* Cor de fundo no hover */
-    transform: translateY(-2px); /* Efeito sutil de levantar no hover */
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 
@@ -57,64 +56,63 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--verde-cabecalho); /* Seu verde com transparência */
-    padding: 20px 0; /* Padding vertical */
-    color: var(--branco); /* Cor do texto padrão para itens dentro do cabeçalho */
+    background-color: var(--verde-cabecalho);
+    padding: 20px 0;
+    color: var(--branco);
     
-    /* PROPRIEDADES PARA TORNAR O CABEÇALHO FIXO */
-    position: fixed; /* Fixa o elemento na tela */
-    top: 0;          /* Alinha ao topo da tela */
-    width: 100%;     /* Faz com que ele ocupe toda a largura */
-    z-index: 1000;   /* Garante que ele fique acima de outros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para dar profundidade */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container-header { /* O container interno do cabeçalho mantém o conteúdo limitado e centralizado */
+.container-header {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px; /* Padding interno para o conteúdo do cabeçalho */
-    display: flex; /* Habilita o Flexbox */
-    justify-content: space-between; /* Distribui os itens com espaço entre eles */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.cabecalho h1 { /* Título principal do site no cabeçalho */
+.cabecalho h1 {
     margin: 0; 
     font-size: 1.6em;
-    color: var(--preto); /* Cor do título do cabeçalho agora é preto */
-    white-space: nowrap; /* Impede que o título quebre a linha */
+    color: var(--preto);
+    white-space: nowrap;
 }
 
-.cabecalho__logo { /* Nome da classe padronizado com __logo */
-    height: 80px; /* Altura da logo, você pode ajustar */
-    width: auto; /* Mantém a proporção da imagem */
-    margin: 0 20px; /* Espaçamento ao redor da logo */
+.cabecalho__logo {
+    height: 80px;
+    width: auto;
+    margin: 0 20px;
 }
 
 /* --- Estilo do Menu (Links de Navegação) --- */
 .menu ul {
-    list-style: none; /* Remove os marcadores de lista */
-    margin: 0; /* Remover margem padrão da ul */
-    padding: 0; /* Remover padding padrão da ul */
-    display: flex; /* Usa Flexbox para alinhar os itens horizontalmente */
-    gap: 25px; /* Espaçamento entre os itens do menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
 }
 
 .menu a {
     font-size: 1.1em;
-    color: var(--branco); /* Links do menu continuam brancos */
+    color: var(--branco);
     text-decoration: none;
-    padding: 8px 15px; /* Padding interno para a área clicável do botão */
-    transition: all 0.3s ease; /* Transição para todas as propriedades no hover */
-    border: 1px solid var(--branco); /* Borda branca de 1px */
-    border-radius: 4px; /* Bordas levemente arredondadas */
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--branco);
+    border-radius: 4px;
 }
 
 .menu a:hover {
-    background-color: #f7e1ee; /* Cor de fundo no hover */
-    color: var(--cor-texto-padrao); /* Cor do texto no hover */
-    border-color: #f7e1ee; /* Mudar a cor da borda no hover para a mesma do background */
+    background-color: #f7e1ee;
+    color: var(--cor-texto-padrao);
+    border-color: #f7e1ee;
 }
 
 /* --- Estilizando a Seção Principal com Imagem de Fundo e Transparência --- */
@@ -124,20 +122,20 @@ body {
     align-items: center;
     text-align: center;
     
-    /* Configurações padrão para a imagem de fundo */
+    /* Configurações padrão para a imagem de fundo (aplicadas em todas as resoluções) */
     background-image: url('img/switzerland-6487204_1920.jpg'); /* IMAGEM PADRÃO */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Para efeito de parallax */
 
-    /* Padding padrão, será sobrescrito pelas media queries se necessário */
+    /* Padding padrão para telas grandes (desktop) */
     padding-top: 12.5rem; 
     padding-bottom: 12.5rem; 
 
     /* PROPRIEDADES PARA A TRANSPARÊNCIA */
-    position: relative; /* Essencial para o pseudo-elemento ::before */
-    overflow: hidden; /* Garante que a sobreposição não vaze */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Pseudo-elemento para criar a camada de transparência (overlay) */
@@ -148,8 +146,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
-    z-index: 1; /* Coloca a sobreposição acima da imagem */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 /* Títulos, textos e botões da seção principal devem ficar acima do overlay */
@@ -183,11 +181,11 @@ body {
     padding: 60px 20px;
     display: flex; 
     gap: 30px; 
-    align-items: flex-start; /* Alinha o topo dos elementos */
+    align-items: flex-start;
     margin-top: 40px; 
     margin-bottom: 40px; 
-    flex-wrap: wrap; /* Para responsividade */
-    justify-content: center; /* Centraliza itens se houver espaço */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .sustentabilidade-content { 
@@ -199,7 +197,7 @@ body {
 .sustentabilidade-titulo { 
     color: var(--cinza-escuro);
     font-weight: 700;
-    font-size: 2.2em; /* Tamanho ajustado para maior destaque */
+    font-size: 2.2em;
     font-family: var(--fonte-titulo);
     text-transform: uppercase;
     text-align: center; 
@@ -207,10 +205,10 @@ body {
 }
 
 .sustentabilidade-subtitulo { 
-    font-size: 1.1em; /* Tamanho ajustado */
+    font-size: 1.1em;
     font-style: italic; 
     color: #555;
-    margin-bottom: 15px; /* Espaçamento ajustado */
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -230,7 +228,7 @@ body {
     flex: 1; 
     max-width: 400px; 
     min-width: 250px; 
-    margin: 0 auto; /* Centraliza a imagem */
+    margin: 0 auto;
 }
 
 .sustentabilidade-image img {
@@ -247,7 +245,7 @@ body {
     padding: 60px 20px;
     text-align: center;
     margin-bottom: 40px;
-    background-color: var(--branco); /* Fundo branco para seções */
+    background-color: var(--branco);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -272,7 +270,7 @@ body {
 /* Mídias para telas menores (até 767px) */
 @media (max-width: 767px) { 
     body {
-        padding-top: 100px; 
+        padding-top: 100px;
     }
 
     .container-header {
@@ -327,10 +325,7 @@ body {
 
     .principal {
         padding: 60px 15px; /* Padding ajustado para telas menores */
-        /* MANTIDO SE NECESSÁRIO: A imagem padrão já está definida, mas se você QUISER uma imagem diferente APENAS para mobile, descomente e ajuste */
-        /* background-image: url('../img/sua-imagem-mobile.jpg'); */
-        /* background-size: cover; */
-        /* background-repeat: no-repeat; */
+        /* Removido background-image redundante daqui. */
     }
 
     .principal__titulo { 
@@ -371,18 +366,30 @@ body {
         font-size: 2em;
     }
 }
+
+/* @media screen and (min-width: 368px) { */
+/* Se a imagem 'switzerland-6487204_1920.jpg' é para todas as telas,
+   então não precisamos re-declarar background-image aqui.
+   Apenas ajustes de padding, se houver, seriam necessários. */
 @media screen and (min-width: 368px) {
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding-top: 3.25rem;
+        /* background-image: url(switzerland-6487204_1920.jpg); */ /* Removido: Redundante com o estilo base */
+        /* background-repeat: no-repeat; */ /* Removido: Redundante com o estilo base */
+        /* background-size: cover; */ /* Removido: Redundante com o estilo base */
+        padding-top: 3.25rem; /* Ajuste de padding para esta faixa */
     }
 }
 
+
+/* Mídias para telas maiores (ex: 768px e acima) */
 @media screen and (min-width: 768px) {
     .principal__texto {
-        max-width: 600px;
+        max-width: 600px; 
+    }
+    .principal {
+        /* background-image: url(switzerland-6487204_1920.jpg); */ /* Removido: Redundante com o estilo base */
+        /* background-size: cover; */ /* Removido: Redundante com o estilo base */
+        padding-top: 3.25rem; /* Mantém o padding para telas maiores */
     }
 }
 
@@ -397,9 +404,27 @@ body {
         margin-bottom: 2rem;
     }
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
-        background-size: cover;
+        /* background-image: url(switzerland-6487204_1920.jpg); */ /* Removido: Redundante com o estilo base */
+        /* background-size: cover; */ /* Removido: Redundante com o estilo base */
+        padding-top: 12.5rem; /* Retorna ao padding maior para desktop grande */
+    }
 
-        padding-top: 3.25rem;
+    /* Sustentabilidade em desktop (retorna para layout lado a lado) */
+    .sustentabilidade-section {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .sustentabilidade-content {
+        margin-right: 3rem; 
+        text-align: left; 
+    }
+    .sustentabilidade-titulo {
+        text-align: left; 
+    }
+    .sustentabilidade-subtitulo {
+        text-align: left;
+    }
+    .sustentabilidade-image {
+        margin: 0; 
     }
 }
