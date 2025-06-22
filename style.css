@@ -1,69 +1,159 @@
+/* style.css */
+
+/* Reset básico (mantido do exemplo anterior, se você não tiver) */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* Ou outra fonte que você preferir */
+}
+
+/* Container para centralizar o conteúdo (mantido do exemplo anterior) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Remover o padding lateral daqui se você já tem padding no cabecalho */
+    /* ou ajustar para não duplicar seletivamente */
+}
+
 .cabecalho {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #22a019c4;
-    padding: 45px 60px;
-    color: rgb(15, 15, 15);
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    background-color: #22a019c4; /* Seu verde com transparência */
+    padding: 20px 40px; /* Padding ajustado para um visual mais equilibrado */
+    color: #fff; /* Alterado para branco para melhor contraste com o fundo verde */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha se não houver espaço */
+}
+
+.cabecalho h1 {
+    margin: 0; /* Remover margem padrão do h1 */
+    font-size: 1.6em; /* Tamanho ajustado para o título do cabeçalho */
+    white-space: nowrap; /* Impede que o título quebre a linha, se possível */
 }
 
 .cabecalho_logo {
-    margin-bottom: 0,5rem;
-    height: 100px;
+    margin: 0 20px; /* Ajuste para espaçamento lateral da logo */
+    height: 80px; /* Altura da logo, você pode ajustar */
+    width: auto; /* Mantém a proporção */
 }
 
+/* Se você não vai usar a div .logo, pode remover este bloco. */
+/* Se for usar, ele precisa de display: none; no HTML ou ser removido. */
 .logo {
-    font-size: 1,2em;
+    font-size: 1.8em; /* Corrigido para . */
     font-weight: bold;
     color: #fff;
+    /* Se a logo é uma imagem, este .logo é desnecessário ou para um caso alternativo */
 }
 
 .menu ul {
     list-style: none;
+    margin: 0; /* Remover margem padrão da ul */
+    padding: 0; /* Remover padding padrão da ul */
     display: flex;
-    gap: 20px; }
+    gap: 30px; /* Aumentei um pouco o gap para mais espaçamento */
+}
 
 .menu a {
-    font-size: 2em;
+    font-size: 1.1em; /* Tamanho da fonte ajustado para o menu (menor que 2em) */
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
-}    
+    padding: 10px 15px; /* Padding ajustado para uma área de clique maior */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição para cor e fundo */
+    border-radius: 4px; /* Manter bordas arredondadas */
+}
 
 .menu a:hover {
     background-color: #f7e1ee;
-    border-radius: 4px;
-    color: #000;
+    color: #333; /* Cor do texto preta no hover para contraste */
+}
+
+/* --- Seção Principal --- */
+/* Exemplo de estilo para a seção principal, se ainda não tiver */
+.principal {
+    text-align: center;
+    padding: 60px 20px; /* Padding ajustado */
+}
+
+.principal_título {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.principal_texto {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5; /* Espaçamento entre linhas para melhor leitura */
+}
+
+.principal_botao {
+    display: inline-block;
+    background-color: #007bff; /* Exemplo de cor de botão */
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.principal_botao:hover {
+    background-color: #0056b3;
 }
 
 
-/* Responsivo para telas menores */
-    @media (max-width: 568px) {
+/* --- Responsivo para telas menores (max-width: 568px) --- */
+@media (max-width: 568px) {
     .cabecalho {
-    flex-direction: column;
-    align-items: flex-start;    
+        flex-direction: column; /* Empilha o título, logo e menu verticalmente */
+        align-items: center; /* Centraliza horizontalmente os itens empilhados */
+        padding: 20px 20px; /* Ajusta o padding para telas menores */
     }
-    
-    .cabecalho_logo{
-    display: none;
 
+    .cabecalho h1 {
+        text-align: center; /* Centraliza o texto do título */
+        margin-bottom: 15px; /* Adiciona espaçamento abaixo do título */
+        font-size: 1.4em; /* Reduz o tamanho da fonte do título em telas menores */
+    }
+
+    .cabecalho_logo {
+        /* display: none; */ /* Se você realmente quer esconder a logo em mobile, mantenha. */
+                               /* Caso contrário, comente ou remova esta linha. */
+        margin-bottom: 15px; /* Adiciona espaçamento abaixo da logo */
+        height: 60px; /* Reduz o tamanho da logo em telas menores */
     }
 
     .menu ul {
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-    padding: 0;    
-    }
-   
-    .menu li {
+        flex-direction: column; /* Empilha os itens do menu verticalmente */
         width: 100%;
+        gap: 5px; /* Reduz o espaçamento entre os itens do menu */
+    }
+    
+    .menu li {
+        width: 100%; /* Faz com que cada item da lista ocupe toda a largura disponível */
+        text-align: center; /* Centraliza o texto dentro de cada item do menu */
     }
 
-    .menu a{
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+    .menu a {
+        display: block; /* Faz o link ocupar todo o espaço do li */
+        width: auto; /* Deixa o link se ajustar ao padding e conteúdo */
+        margin: 0; /* Remove margens extras */
+        padding: 10px 0; /* Ajusta o padding vertical para a área de clique */
+        /* Remova padding: 0; em responsivo para menu a, e ajuste aqui */
+        font-size: 1em; /* Ajusta o tamanho da fonte do menu para mobile */
     }
-}   
+
+    .principal {
+        padding: 40px 15px; /* Ajusta padding da seção principal em mobile */
+    }
+
+    .principal_título {
+        font-size: 2em; /* Reduz o tamanho do título principal em mobile */
+    }
+
+    .principal_texto {
+        font-size: 1em; /* Reduz o tamanho do texto principal em mobile */
+    }
+}
