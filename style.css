@@ -1,129 +1,309 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --branco: #FFF;
+    --preto: #000;
+    --cinza-escuro: #5e5d53;
+    --cinza-claro:#9c9992;
+
+    --montserrat: 'Montserrat', sans-serif;
 }
+
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: white;
-    color: #333;
+    font-family: 'Open Sans', sans-serif;
 }
 
-/* Cabeçalho */
-.cabecalho {
-    background-color: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-}
 
-.cabecalho .logo {
-    height: 50px;
-}
+.container {
+   padding-right: 6%;
+    padding-left: 6%;
 
-.cabecalho .menu ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.cabecalho .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: 0.3s;
-}
-
-.cabecalho .menu a:hover {
-    color: #f7e1ee;
-}
-
-/* Principal */
-.principal {
-    background-color: #000;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.principal h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.principal p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
 }
 
 .botao {
-    background-color: transparent;
-    color: white;
-    padding: 12px 24px;
-    border: 1px solid white;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: 0.3s;
+    text-align: center;
+
+    display: block;
+
+    width: 100%;
+    max-width: 220px;
+
+    box-sizing: border-box;
+
+    padding: 1rem 2rem;
+
+    border: 1px solid var(--branco);
+    border-radius: 5px;
 }
 
-.botao:hover {
-    background-color: white;
-    color: black;
-}
 
-/* Sustentabilidade */
-.sustentabilidade {
+
+.cabecalho{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 60px;
-    gap: 40px;
-}
-
-.sustentabilidade .texto {
-    flex: 1;
-}
-
-.sustentabilidade h2 {
-    color: #4CAF50;
-    margin-bottom: 15px;
-}
-
-.sustentabilidade p {
-    line-height: 1.6;
-}
-
-.sustentabilidade .imagem img {
-    width: 400px;
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-/* Rodapé */
-.rodape {
     background-color: #000;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+
+  }
+
+  .cabecalho__logo {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
+    height:4rem;
+  }
+
+   .menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  text-align: left;
+  }
+
+  .menu a {
+    font-size: 1.2em;
     color: white;
+    text-decoration: none;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .menu a:hover {
+    background-color: #21131a;
+    border-radius: 4px;
+    color: #d2cdcd;
+
+  }
+
+  /*seção principal inicio*/
+
+.principal{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--branco);
     text-align: center;
-    padding: 20px;
+
+    background-color: var(--preto);
+
+    padding-top: 12.5rem;
+    padding-bottom: 12.5rem;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+.principal__titulo {
+    font-family: var(--montserrat);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 6rem;
+    margin-bottom: 1.5rem;
+}
+
+.principal__texto {
+    font-size: 1.25rem;
+    line-height: normal;
+
+    margin: 0 auto 2.5rem;
+}
+
+.principal__botao {
+    width: 100%;
+}
+
+/**/
+
+/* SEGUNDA SECAO */
+
+
+.segunda-secao__conteudo {
+   
+    padding: 50px;
+    border-radius: 25px;
+    line-height: 25px;
+    background-color: var(--branco);
+    box-shadow: 0 0 10px 0 var(--cinza-escuro);
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+      
+    margin: 0 25px 50px 25px;
+    
+}
+
+.segunda-secao__conteudo h2 {
+    font-family: var(--fonte-02);
+    font-size: 42px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.segunda-secao__conteudo h3 {
+    font-size: 16px;
+    letter-spacing: 2.5px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.segunda-secao__conteudo h3::before,
+.segunda-secao__conteudo h3::after {
+    content: " - ";
+}
+
+/**/
+
+
+/**/
+/*seção Responsivo*/
+
+@media screen and (min-width: 368px) {
+    .principal {
+        background-image: url(../img/campo.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 3.25rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .principal__texto {
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding-left: calc((100% - 940px)/2);
+        padding-right: calc((100% - 940px)/2);
+    }
+
+    .principal__titulo {
+        font-size: 3.25rem;
+        margin-bottom: 2rem;
+    }
+    .principal {
+        background-image: url(img/campo.jpg);
+        background-size: cover;
+
+        padding-top: 3.25rem;
+    }
+
+}
+  /* Responsivo para cabeçalho */
+  @media (max-width: 568px) {
     .cabecalho {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
+      flex-direction: column;
+      align-items: flex-start;
+
+    }
+  .cabecalho__logo{
+    display: none;
+  }
+    .menu ul {
+      flex-direction: column;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    .sustentabilidade {
-        flex-direction: column;
-        text-align: center;
+    .menu li {
+      width: 100%;
+
     }
 
-    .sustentabilidade .imagem img {
-        width: 100%;
+    .menu a {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+  .principal {
+        background-image: url(img/campo.jpg);
+        background-size: cover;
+
+        padding-top: 3.25rem;
+    }
+  }
+
+
+  /**/
+  .sustent3 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+ /*.sustent4 {
+   position: absolute;
+    display: flex;
+  justify-content: center;
+ margin: 60px;
+
+  border: 3px solid #73AD21;
+  padding: 20px;
+}*/
+
+.sustent3__titulo {
+    color: var(--cinza-escuro);
+    font-weight: 700;
+    font-size: 1.5rem;
+    font-family: var(--montserrat);
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 1.25rem;
+}
+
+.sustent3__texto {
+    line-height: normal;
+
+    margin-bottom: 1rem;
+}
+
+/*.sustent4__texto {
+    text-align: right;
+width: 50%;
+    margin-bottom: 1rem;
+
+}*/
+
+.sustent3__imagem {
+    display: none;
+    width: 400px;
+    height: 300px;
+
+}
+/*.sustent4__imagem {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}*/
+
+@media screen and (min-width: 1024px) {
+    .sustent3 {
+        display: flex;
+    }
+
+    .sustent3__conteudo {
+        margin-right: 3rem;
+    }
+
+    .sustent3__titulo {
+        text-align: left;
+    }
+
+    .sustent3__texto--divisao {
+        border-bottom: 1px solid var(--cinza-medio);
+
+        padding-bottom: 1.5rem;
+    }
+
+    .sustent3__imagem {
+        display: block;
     }
 }
