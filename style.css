@@ -1,159 +1,261 @@
 /* style.css */
 
-/* Reset básico (mantido do exemplo anterior, se você não tiver) */
+/* --- Reset Básico e Estilos Globais --- */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif; /* Ou outra fonte que você preferir */
+    font-family: 'Arial', sans-serif; /* Você pode mudar para uma fonte do Google Fonts, por exemplo */
+    background-color: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
+    line-height: 1.6; /* Espaçamento entre linhas padrão para o corpo do texto */
+    color: #333; /* Cor de texto padrão */
 }
 
-/* Container para centralizar o conteúdo (mantido do exemplo anterior) */
+/* O container para centralizar o CONTEÚDO dentro de seções de largura total */
 .container {
+    max-width: 1200px; /* Largura máxima do seu conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Padding interno para o conteúdo não colar nas bordas */
+}
+
+/* --- Estilizando o Cabeçalho --- */
+.cabecalho {
+    background-color: #22a019c4; /* Seu verde com transparência */
+    padding: 20px 0; /* Padding vertical, o padding horizontal será dado pelo container-header */
+    color: #fff; /* Cor do texto para branco */
+    /* Não aplicamos display: flex aqui diretamente, mas sim no .container-header */
+}
+
+.container-header { /* Nova classe para o container interno do cabeçalho */
     max-width: 1200px;
     margin: 0 auto;
-    /* Remover o padding lateral daqui se você já tem padding no cabecalho */
-    /* ou ajustar para não duplicar seletivamente */
-}
-
-.cabecalho {
-    display: flex;
-    justify-content: space-between; /* Distribui o espaço entre os itens */
-    align-items: center; /* Alinha verticalmente os itens no centro */
-    background-color: #22a019c4; /* Seu verde com transparência */
-    padding: 20px 40px; /* Padding ajustado para um visual mais equilibrado */
-    color: #fff; /* Alterado para branco para melhor contraste com o fundo verde */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha se não houver espaço */
+    padding: 0 40px; /* Padding interno para o conteúdo do cabeçalho */
+    display: flex; /* Habilita o Flexbox */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
 }
 
 .cabecalho h1 {
-    margin: 0; /* Remover margem padrão do h1 */
+    margin: 0; /* Remove a margem padrão do h1 */
     font-size: 1.6em; /* Tamanho ajustado para o título do cabeçalho */
     white-space: nowrap; /* Impede que o título quebre a linha, se possível */
 }
 
 .cabecalho_logo {
-    margin: 0 20px; /* Ajuste para espaçamento lateral da logo */
     height: 80px; /* Altura da logo, você pode ajustar */
-    width: auto; /* Mantém a proporção */
+    width: auto; /* Mantém a proporção da imagem */
+    margin: 0 20px; /* Espaçamento ao redor da logo */
 }
 
-/* Se você não vai usar a div .logo, pode remover este bloco. */
-/* Se for usar, ele precisa de display: none; no HTML ou ser removido. */
-.logo {
-    font-size: 1.8em; /* Corrigido para . */
-    font-weight: bold;
-    color: #fff;
-    /* Se a logo é uma imagem, este .logo é desnecessário ou para um caso alternativo */
-}
-
+/* --- Estilo do Menu (Links de Navegação) --- */
 .menu ul {
-    list-style: none;
+    list-style: none; /* Remove os marcadores de lista */
     margin: 0; /* Remover margem padrão da ul */
     padding: 0; /* Remover padding padrão da ul */
-    display: flex;
-    gap: 30px; /* Aumentei um pouco o gap para mais espaçamento */
+    display: flex; /* Usa Flexbox para alinhar os itens horizontalmente */
+    gap: 25px; /* Espaçamento entre os itens do menu */
 }
 
 .menu a {
-    font-size: 1.1em; /* Tamanho da fonte ajustado para o menu (menor que 2em) */
+    font-size: 1.1em;
     color: white;
     text-decoration: none;
-    padding: 10px 15px; /* Padding ajustado para uma área de clique maior */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição para cor e fundo */
-    border-radius: 4px; /* Manter bordas arredondadas */
+    padding: 8px 15px; /* Padding interno para a área clicável do botão */
+    transition: all 0.3s ease; /* Transição para todas as propriedades no hover */
+    border: 1px solid white; /* Borda branca de 1px */
+    border-radius: 4px; /* Bordas levemente arredondadas */
 }
 
 .menu a:hover {
-    background-color: #f7e1ee;
-    color: #333; /* Cor do texto preta no hover para contraste */
+    background-color: #f7e1ee; /* Cor de fundo no hover */
+    color: #333; /* Cor do texto no hover */
+    border-color: #f7e1ee; /* Mudar a cor da borda no hover para a mesma do background */
 }
 
-/* --- Seção Principal --- */
-/* Exemplo de estilo para a seção principal, se ainda não tiver */
+/* --- Estilizando a Seção Principal com Imagem de Fundo --- */
 .principal {
     text-align: center;
-    padding: 60px 20px; /* Padding ajustado */
+    padding: 100px 20px; /* Mais padding para espaçamento superior/inferior */
+    background-image: url('img/background-por-do-sol.jpg'); /* **ATENÇÃO:** Mude para o caminho da sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center center; /* Centraliza a imagem */
+    color: white; /* Texto branco para contraste com a imagem escura */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para o texto para melhor leitura */
 }
 
 .principal_título {
-    font-size: 2.8em;
-    color: #333;
+    font-size: 3em; /* Tamanho maior para o título principal */
     margin-bottom: 15px;
 }
 
 .principal_texto {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 25px;
-    line-height: 1.5; /* Espaçamento entre linhas para melhor leitura */
+    font-size: 1.3em;
+    margin-bottom: 30px;
 }
 
 .principal_botao {
-    display: inline-block;
-    background-color: #007bff; /* Exemplo de cor de botão */
+    display: inline-block; /* Para poder aplicar padding e margin */
+    background-color: #007bff; /* Cor de botão azul (exemplo) */
     color: #fff;
     text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 5px;
+    padding: 15px 30px;
+    border-radius: 5px; /* Bordas arredondadas */
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
 }
 
 .principal_botao:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cor mais escura no hover */
 }
 
+/* --- Estilizando a Seção de Sustentabilidade --- */
+.sustentabilidade-section {
+    padding: 60px 20px;
+    display: flex; /* Usa Flexbox para o layout da seção */
+    gap: 30px; /* Espaçamento entre o texto e a imagem */
+    align-items: flex-start; /* Alinha o topo dos itens flex */
+    /* max-width e margin auto já vêm da classe .container aplicada no HTML */
+    margin-top: 40px; /* Espaço acima da seção */
+    margin-bottom: 40px; /* Espaço abaixo da seção */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+}
 
-/* --- Responsivo para telas menores (max-width: 568px) --- */
-@media (max-width: 568px) {
-    .cabecalho {
+.sustentabilidade-content {
+    flex: 2; /* Faz o conteúdo textual ocupar mais espaço */
+    min-width: 300px; /* Largura mínima para o conteúdo */
+}
+
+.sustentabilidade-subtitulo {
+    font-style: italic; /* Adiciona um estilo itálico ao subtítulo */
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.sustentabilidade-image {
+    flex: 1; /* Faz a imagem ocupar menos espaço */
+    max-width: 400px; /* Largura máxima para a imagem */
+    min-width: 250px; /* Largura mínima para a imagem */
+}
+
+.sustentabilidade-image img {
+    max-width: 100%; /* Garante que a imagem seja responsiva */
+    height: auto;
+    display: block; /* Remove o espaço extra abaixo da imagem */
+    border-radius: 8px; /* Bordas arredondadas para a imagem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para a imagem */
+}
+
+.sustentabilidade-section h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sustentabilidade-section p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- Estilos para as novas seções (Serviços e Contato) --- */
+.servicos-section,
+.contato-section {
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.servicos-section h2,
+.contato-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.servicos-section p,
+.contato-section p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* --- Responsividade Geral --- */
+@media (max-width: 768px) {
+    .container-header {
         flex-direction: column; /* Empilha o título, logo e menu verticalmente */
         align-items: center; /* Centraliza horizontalmente os itens empilhados */
-        padding: 20px 20px; /* Ajusta o padding para telas menores */
+        padding: 20px; /* Ajusta o padding para telas menores */
     }
 
     .cabecalho h1 {
-        text-align: center; /* Centraliza o texto do título */
-        margin-bottom: 15px; /* Adiciona espaçamento abaixo do título */
-        font-size: 1.4em; /* Reduz o tamanho da fonte do título em telas menores */
+        font-size: 1.4em;
+        margin-bottom: 15px; /* Mais espaço abaixo do título */
+        text-align: center;
     }
 
     .cabecalho_logo {
-        /* display: none; */ /* Se você realmente quer esconder a logo em mobile, mantenha. */
-                               /* Caso contrário, comente ou remova esta linha. */
-        margin-bottom: 15px; /* Adiciona espaçamento abaixo da logo */
-        height: 60px; /* Reduz o tamanho da logo em telas menores */
+        height: 60px;
+        margin-bottom: 15px; /* Mais espaço abaixo da logo */
+        margin-left: 0; /* Remove margem lateral em mobile */
+        margin-right: 0; /* Remove margem lateral em mobile */
     }
 
     .menu ul {
-        flex-direction: column; /* Empilha os itens do menu verticalmente */
+        flex-direction: column;
+        gap: 8px;
         width: 100%;
-        gap: 5px; /* Reduz o espaçamento entre os itens do menu */
+        text-align: center; /* Centraliza os itens do menu em mobile */
     }
-    
+
     .menu li {
-        width: 100%; /* Faz com que cada item da lista ocupe toda a largura disponível */
-        text-align: center; /* Centraliza o texto dentro de cada item do menu */
+        width: 100%;
     }
 
     .menu a {
-        display: block; /* Faz o link ocupar todo o espaço do li */
-        width: auto; /* Deixa o link se ajustar ao padding e conteúdo */
-        margin: 0; /* Remove margens extras */
-        padding: 10px 0; /* Ajusta o padding vertical para a área de clique */
-        /* Remova padding: 0; em responsivo para menu a, e ajuste aqui */
-        font-size: 1em; /* Ajusta o tamanho da fonte do menu para mobile */
+        font-size: 1em;
+        padding: 10px 0; /* Padding vertical para os links */
+        width: 100%; /* Ocupa a largura total no mobile */
+        box-sizing: border-box; /* Garante que padding não adicione largura */
     }
 
     .principal {
-        padding: 40px 15px; /* Ajusta padding da seção principal em mobile */
+        padding: 60px 15px;
     }
 
     .principal_título {
-        font-size: 2em; /* Reduz o tamanho do título principal em mobile */
+        font-size: 2.2em;
     }
 
     .principal_texto {
-        font-size: 1em; /* Reduz o tamanho do texto principal em mobile */
+        font-size: 1em;
+    }
+
+    .principal_botao {
+        padding: 12px 25px;
+    }
+
+    .sustentabilidade-section {
+        flex-direction: column; /* Empilha o texto e a imagem em telas menores */
+        align-items: center;
+        padding: 40px 15px;
+    }
+
+    .sustentabilidade-content,
+    .sustentabilidade-image {
+        min-width: unset; /* Remove o min-width para flexibilidade */
+        width: 100%; /* Ocupa a largura total */
+    }
+
+    .sustentabilidade-image {
+        margin-top: 20px; /* Espaço entre o texto e a imagem empilhados */
+    }
+
+    .servicos-section,
+    .contato-section {
+        padding: 40px 15px;
+    }
+
+    .servicos-section h2,
+    .contato-section h2 {
+        font-size: 2em;
     }
 }
