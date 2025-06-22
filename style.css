@@ -128,7 +128,7 @@ body {
     padding-bottom: 12.5rem; 
 
     /* PROPRIEDADES DA IMAGEM DE FUNDO (Aplicadas por padrão em todas as resoluções) */
-    background-image: url('img/vinhedo.jpg'); /* Caminho para a imagem local na pasta img */
+    background-image: url('img/switzerland-6487204_1920.jpg'); /* MUDANÇA AQUI: Nova imagem de fundo */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -164,7 +164,6 @@ body {
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
-    /* padding-top: 6rem; REMOVIDO AQUI, AGORA É CONTROLADO PELO .principal GERAL OU MEDIA QUERIES */
     margin-bottom: 1.5rem;
     color: var(--preto); 
     text-shadow: none; 
@@ -328,8 +327,6 @@ body {
 
     .principal {
         padding: 60px 15px; /* Padding ajustado para telas menores */
-        /* REMOVIDAS as propriedades background-image, background-repeat, background-size,
-           pois já estão definidas no estilo base e queremos que a imagem do vinhedo persista. */
     }
 
     .principal__titulo { 
@@ -376,13 +373,6 @@ body {
     .principal__texto {
         max-width: 600px; /* Mantém a largura máxima do texto como você tinha */
     }
-
-    /* REMOVIDAS as propriedades background-image, background-size, padding-top
-       do .principal aqui para evitar sobrescrever a imagem do vinhedo.
-       O padding-top já está definido no estilo base do .principal. */
-    /* .principal {
-        padding-top: 3.25rem; 
-    } */
 }
 
 @media screen and (min-width: 1024px) {
@@ -395,15 +385,6 @@ body {
         font-size: 3.25rem;
         margin-bottom: 2rem;
     }
-
-    /* REMOVIDAS as propriedades background-image, background-size, padding-top
-       do .principal aqui. Elas já estão no estilo base e não precisam ser repetidas
-       nem sobrescritas com a imagem "campo.jpg". */
-    /* .principal {
-        background-image: url(img/campo.jpg);
-        background-size: cover;
-        padding-top: 3.25rem;
-    } */
 
     /* Sustentabilidade em desktop (retorna para layout lado a lado) */
     .sustentabilidade-section {
