@@ -4,22 +4,22 @@
 :root {
     --branco: #FFF;
     --preto: #000;
-    --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
     --cinza-escuro: #5e5d53;
-    --cinza-claro: #9c9992;
-    --fundo-pagina: #f8f8f8; /* Nova variável para o fundo da página */
-    --cor-texto-padrao: #333; /* Nova variável para a cor padrão do texto */
+    --cinza-claro:#9c9992;
+    --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
+    --fundo-pagina: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
+    --cor-texto-padrao: #333; /* Cor de texto padrão */
 
-    --fonte-principal: 'Arial', sans-serif; /* Usando Arial como fallback */
-    --fonte-titulo: 'Montserrat', sans-serif; /* Se for usar essa fonte, importe do Google Fonts */
-    /* Exemplo de importação no HTML: <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> */
+    --fonte-principal: 'Open Sans', sans-serif; /* Usando Open Sans */
+    --fonte-titulo: 'Montserrat', sans-serif; /* Usando Montserrat */
 }
 
 /* --- Reset Básico e Estilos Globais --- */
 body {
     margin: 0;
+    padding: 0; 
     /* padding-top é crucial para o cabeçalho fixo. Ajuste conforme a altura final do seu cabeçalho. */
-    padding-top: 120px; /* Um valor inicial, ajuste conforme a altura final do seu cabeçalho */
+    padding-top: 120px; /* Um valor inicial, ajuste se a altura do seu cabeçalho mudar */
     font-family: var(--fonte-principal);
     background-color: var(--fundo-pagina);
     line-height: 1.6;
@@ -34,7 +34,7 @@ body {
 
 .botao {
     text-align: center;
-    display: inline-block; /* Altera de block para inline-block para melhor controle */
+    display: inline-block; /* Melhor para botões em linha com outros elementos */
     max-width: 220px;
     box-sizing: border-box;
     padding: 1rem 2rem;
@@ -42,17 +42,21 @@ body {
     border-radius: 5px;
     text-decoration: none; /* Remove sublinhado padrão dos links */
     color: var(--branco); /* Cor do texto do botão */
-    background-color: #007bff; /* Cor de fundo do botão, pode ajustar */
-    transition: background-color 0.3s ease; /* Transição suave */
+    background-color: #007bff; /* Cor de fundo padrão para o botão (exemplo) */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
 }
 
 .botao:hover {
     background-color: #0056b3; /* Cor de fundo no hover */
+    transform: translateY(-2px); /* Efeito sutil de levantar no hover */
 }
 
 
 /* --- Estilizando o Cabeçalho FIXO --- */
-.cabecalho {
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--verde-cabecalho); /* Seu verde com transparência */
     padding: 20px 0; /* Padding vertical */
     color: var(--branco);
@@ -78,10 +82,11 @@ body {
 .cabecalho h1 { /* Título principal do site no cabeçalho */
     margin: 0; 
     font-size: 1.6em;
+    color: var(--branco);
     white-space: nowrap; /* Impede que o título quebre a linha */
 }
 
-.cabecalho__logo { /* Nome da classe corrigido para __logo */
+.cabecalho__logo { /* Nome da classe padronizado com __logo */
     height: 80px; /* Altura da logo, você pode ajustar */
     width: auto; /* Mantém a proporção da imagem */
     margin: 0 20px; /* Espaçamento ao redor da logo */
@@ -114,105 +119,115 @@ body {
 
 /* --- Estilizando a Seção Principal com Imagem de Fundo e Transparência --- */
 .principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--branco);
     text-align: center;
-    padding: 100px 20px; /* Padding interno da seção */
     
-    /* IMAGEM DE FUNDO - AGORA USANDO O ARQUIVO LOCAL 'vinhedo.jpg' */
-    /* Certifique-se de que 'vinhedo.jpg' está na sua pasta 'img' */
-    background-image: url('img/vinhedo.jpg'); 
-    background-size: cover; /* Garante que a imagem cubra toda a área */
-    background-position: center center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita a repetição da imagem */
-    background-attachment: fixed; /* Faz o background fixar e não rolar com o conteúdo */
-    
-    color: var(--branco); /* Cor do texto para ser legível sobre o fundo escuro */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para melhorar a legibilidade do texto */
+    padding-top: 12.5rem; 
+    padding-bottom: 12.5rem; 
 
-    /* PROPRIEDADES PARA A SOBREPOSIÇÃO (OVERLAY) DA IMAGEM */
-    position: relative; /* Essencial para o posicionamento do pseudo-elemento ::before */
-    overflow: hidden; /* Esconde qualquer conteúdo que exceda os limites da seção */
+    /* PROPRIEDADES DA IMAGEM DE FUNDO */
+    background-image: url('img/vinhedo.jpg'); /* Caminho para a imagem local na pasta img */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Para efeito de parallax */
+
+    /* PROPRIEDADES PARA A TRANSPARÊNCIA */
+    position: relative; /* Essencial para o pseudo-elemento ::before */
+    overflow: hidden; /* Garante que a sobreposição não vaze */
 }
 
-/* Pseudo-elemento para criar a camada de transparência (escurecimento) */
+/* Pseudo-elemento para criar a camada de transparência (overlay) */
 .principal::before {
-    content: ''; /* Propriedade obrigatória para pseudo-elementos */
-    position: absolute; /* Posiciona o pseudo-elemento em relação ao seu pai (.principal) */
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade. Ajuste 0.5 se quiser mais ou menos escuro. */
-    z-index: 1; /* Coloca esta camada ACIMA da imagem de fundo */
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1; /* Coloca a sobreposição acima da imagem */
 }
 
-/* Garante que o texto e o botão fiquem ACIMA da camada de transparência */
-.principal__titulo, /* Corrigido para __titulo */
-.principal__texto, /* Corrigido para __texto */
-.principal__botao { /* Corrigido para __botao */
-    position: relative; /* Necessário para que o z-index funcione */
-    z-index: 2; /* Coloca estes elementos ACIMA da camada de transparência */
+/* Títulos, textos e botões da seção principal devem ficar acima do overlay */
+.principal__titulo, 
+.principal__texto, 
+.principal__botao { 
+    position: relative;
+    z-index: 2; /* Coloca esses elementos acima do overlay */
 }
 
-/* Estilos para a lista de características na seção principal (descomente se for usar no HTML) */
-/*
-.principal .caracteristicas-list {
-    list-style: none; 
-    padding: 0;
-    margin: 20px auto 30px auto;
+.principal__titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 6rem;
+    margin-bottom: 1.5rem;
+}
+
+.principal__texto {
+    font-size: 1.25rem;
+    line-height: normal;
+    margin: 0 auto 2.5rem;
+}
+
+/* --- Estilizando a Seção de Sustentabilidade --- */
+.sustentabilidade-section { 
+    padding: 60px 20px;
+    display: flex; 
+    gap: 30px; 
+    align-items: flex-start; /* Alinha o topo dos elementos */
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    flex-wrap: wrap; /* Para responsividade */
+    justify-content: center; /* Centraliza itens se houver espaço */
+}
+
+.sustentabilidade-content { 
+    flex: 2; 
+    min-width: 300px; 
     max-width: 600px;
 }
 
-.principal .caracteristicas-list li {
-    font-size: 1.1em;
-    color: white; 
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    margin-bottom: 8px;
-}
-*/
-
-/* --- Estilizando a Seção de Sustentabilidade (Ajustado para novas classes e estrutura) --- */
-.sustentabilidade-section { /* Nova classe para a seção principal de sustentabilidade */
-    padding: 60px 20px;
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin-top: 40px; 
-    margin-bottom: 40px; 
-    flex-wrap: wrap;
-}
-
-.sustentabilidade-content { /* Nova classe para o conteúdo textual */
-    flex: 2; 
-    min-width: 300px;
-}
-
-.sustentabilidade-titulo { /* Título da seção de sustentabilidade */
-    font-size: 2.2em;
-    color: var(--cor-texto-padrao);
+.sustentabilidade-titulo { 
+    color: var(--cinza-escuro);
+    font-weight: 700;
+    font-size: 2.2em; /* Tamanho ajustado para maior destaque */
+    font-family: var(--fonte-titulo);
+    text-transform: uppercase;
+    text-align: center; 
     margin-bottom: 20px;
 }
 
-.sustentabilidade-subtitulo { /* Subtítulo da seção de sustentabilidade */
+.sustentabilidade-subtitulo { 
+    font-size: 1.1em; /* Tamanho ajustado */
     font-style: italic; 
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Espaçamento ajustado */
+    text-align: center;
 }
 
-.sustentabilidade-section p { /* Parágrafos dentro da seção de sustentabilidade */
+.sustentabilidade-section p { 
     font-size: 1em;
     color: #666;
     line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
-.texto--destaque { /* Classe para textos destacados, como "conscientização" */
+.texto--destaque { 
     font-weight: bold;
-    color: var(--cinza-escuro); /* Ou outra cor que você preferir */
+    color: var(--cinza-escuro); 
 }
 
-.sustentabilidade-image { /* Nova classe para a imagem */
+.sustentabilidade-image { 
     flex: 1; 
     max-width: 400px; 
     min-width: 250px; 
+    margin: 0 auto; /* Centraliza a imagem */
 }
 
 .sustentabilidade-image img {
@@ -229,6 +244,9 @@ body {
     padding: 60px 20px;
     text-align: center;
     margin-bottom: 40px;
+    background-color: var(--branco); /* Fundo branco para seções */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .servicos-section h2,
@@ -236,6 +254,7 @@ body {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
+    font-family: var(--fonte-titulo);
 }
 
 .servicos-section p,
@@ -247,9 +266,8 @@ body {
 
 /* --- Responsividade Geral --- */
 @media (max-width: 768px) {
-    /* Ajuste o padding-top do body para telas menores se o cabeçalho mudar de altura */
     body {
-        padding-top: 100px; /* Um valor menor para cabeçalho em mobile */
+        padding-top: 100px; /* Ajuste para cabeçalho menor em mobile */
     }
 
     .container-header {
@@ -264,24 +282,23 @@ body {
         text-align: center;
     }
 
-    .cabecalho__logo { /* Corrigido para __logo */
+    .cabecalho__logo { 
         height: 60px;
         margin-bottom: 15px;
         margin-left: 0;
         margin-right: 0;
     }
 
-    /* Ocultar a logo em telas muito pequenas (conforme seu CSS original) */
+    /* Ocultar a logo em telas muito pequenas */
     @media (max-width: 568px) {
         .cabecalho__logo {
             display: none;
         }
-        /* Ajuste do padding-top para quando a logo some */
         body {
             padding-top: 80px; 
         }
         .cabecalho {
-             padding: 15px 0; /* Menor padding para o cabeçalho mobile */
+             padding: 15px 0; 
         }
     }
 
@@ -297,9 +314,10 @@ body {
     }
 
     .menu a {
-        font-size: 1em;
-        padding: 10px 0;
+        display: block;
         width: 100%;
+        margin: 0;
+        padding: 10px 0;
         box-sizing: border-box;
     }
 
@@ -307,19 +325,19 @@ body {
         padding: 60px 15px;
     }
 
-    .principal__titulo { /* Corrigido para __titulo */
+    .principal__titulo { 
         font-size: 2.2em;
     }
 
-    .principal__texto { /* Corrigido para __texto */
+    .principal__texto { 
         font-size: 1em;
     }
 
-    .principal__botao { /* Corrigido para __botao */
+    .principal__botao { 
         padding: 12px 25px;
     }
 
-    .sustentabilidade-section { /* Ajustado para nova classe */
+    .sustentabilidade-section { 
         flex-direction: column;
         align-items: center;
         padding: 40px 15px;
@@ -343,5 +361,36 @@ body {
     .servicos-section h2,
     .contato-section h2 {
         font-size: 2em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding-left: calc((100% - 940px)/2);
+        padding-right: calc((100% - 940px)/2);
+    }
+
+    .principal__titulo {
+        font-size: 3.25rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Sustentabilidade em desktop (retorna para layout lado a lado) */
+    .sustentabilidade-section {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    .sustentabilidade-content {
+        margin-right: 3rem; 
+        text-align: left; 
+    }
+    .sustentabilidade-titulo {
+        text-align: left; 
+    }
+    .sustentabilidade-subtitulo {
+        text-align: left;
+    }
+    .sustentabilidade-image {
+        margin: 0; 
     }
 }
