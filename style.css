@@ -86,8 +86,8 @@ body {
     text-align: center;
     padding: 100px 20px;
     
-    /* IMAGEM DE FUNDO */
-    background-image: url('img/vineyard-in-autumn-and-the-skyline-of-vienna-in-austria.jpg'); /* */
+    /* IMAGEM DE FUNDO - AGORA USANDO O LINK DIRETO DA ISTOCKPHOTO */
+    background-image: url('https://media.istockphoto.com/id/625207208/pt/foto/vineyard-in-autumn-and-the-skyline-of-vienna-in-austria.jpg?s=612x612&w=0&k=20&c=WoNunsD6jW_On1hFpFHVJ9bEmGtqcJsGqLY8TL31rI=');
     background-size: cover; /* Garante que a imagem cubra toda a área */
     background-position: center center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita a repetição da imagem */
@@ -99,6 +99,26 @@ body {
     /* PROPRIEDADES PARA A SOBREPOSIÇÃO (OVERLAY) DA IMAGEM */
     position: relative; /* Essencial para o posicionamento do pseudo-elemento ::before */
     overflow: hidden; /* Esconde qualquer conteúdo que exceda os limites da seção */
+}
+
+/* Pseudo-elemento para criar a camada de transparência (escurecimento) */
+.principal::before {
+    content: ''; /* Propriedade obrigatória para pseudo-elementos */
+    position: absolute; /* Posiciona o pseudo-elemento em relação ao seu pai (.principal) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade. Ajuste 0.5 se quiser mais ou menos escuro. */
+    z-index: 1; /* Coloca esta camada ACIMA da imagem de fundo */
+}
+
+/* Garante que o texto e o botão fiquem ACIMA da camada de transparência */
+.principal_título,
+.principal_texto,
+.principal_botao {
+    position: relative; /* Necessário para que o z-index funcione */
+    z-index: 2; /* Coloca estes elementos ACIMA da camada de transparência */
 }
 
 /* Pseudo-elemento para criar a camada de transparência (escurecimento) */
