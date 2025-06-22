@@ -1,73 +1,69 @@
-/* Variáveis de cores */
-:root {
-    --cor-primaria: #3498db;
-    --cor-secundaria: #2c3e50;
-    --cor-fundo: #0d8f18a4;
-    --cor-texto: #333;
-}
-
-/* Geral */
-body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Cabeçalho */
-header {
-    background-color: var(--cor-secundaria);
-    color: white;
-    padding: 20px 0;
-}
-
-header h1 {
-    margin-bottom: 10px;
-}
-
-nav ul {
+.cabecalho {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #22a019c4;
+    padding: 45px 60px;
+    color: rgb(15, 15, 15);
 }
 
-nav a {
-    color: white;
+.cabecalho_logo {
+    margin-bottom: 0,5rem;
+    height: 100px;
+}
+
+.logo {
+    font-size: 1,2em;
     font-weight: bold;
-    transition: color 0.3s;
+    color: #fff;
 }
 
-nav a:hover {
-    color: var(--cor-primaria);
-}
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; }
 
-/* Hero Section */
-.hero {
-    background-color: var(--cor-primaria);
+.menu a {
+    font-size: 2em;
     color: white;
-    padding: 60px 0;
-    text-align: center;
+    text-decoration: none;
+    padding: 8px 12px;
+}    
+
+.menu a:hover {
+    background-color: #f7e1ee;
+    border-radius: 4px;
+    color: #000;
 }
 
-.hero h2 {
-    margin-bottom: 20px;
-}
 
-/* Sobre */
-.sobre {
-    padding: 40px 0;
-    text-align: center;
-}
+/* Responsivo para telas menores */
+    @media (max-width: 568px) {
+    .cabecalho {
+    flex-direction: column;
+    align-items: flex-start;    
+    }
+    
+    .cabecalho_logo{
+    display: none;
 
-/* Rodapé */
-footer {
-    background-color: var(--cor-secundaria);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
-}
+    }
+
+    .menu ul {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;    
+    }
+   
+    .menu li {
+        width: 100%;
+    }
+
+    .menu a{
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}   
