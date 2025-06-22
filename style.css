@@ -371,36 +371,18 @@ body {
         font-size: 2em;
     }
 }
-
-/* @media screen and (min-width: 368px) { */
-/* Este breakpoint de 368px está dentro do range de 767px,
-   então as regras do @media (max-width: 767px) acima já o cobrem.
-   Se você quiser uma imagem ESPECÍFICA para 368px e acima,
-   mas ainda abaixo de 768px, podemos colocar aqui. */
-/* Se a intenção era aplicar campo.jpg para telas a partir de 368px ATÉ 767px,
-   então descomente e use o código abaixo. */
-@media screen and (min-width: 368px) and (max-width: 767px) {
+@media screen and (min-width: 368px) {
     .principal {
-        background-image: url(../img/campo.jpg); /* IMAGEM ESPECÍFICA PARA 368px A 767px */
+        background-image: url(switzerland-6487204_1920.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        padding-top: 3.25rem; /* Ajusta o padding para esta faixa */
-        /* background-attachment: scroll; Pode mudar de fixed para scroll se quiser em mobile */
+        padding-top: 3.25rem;
     }
 }
 
-
-/* Mídias para telas maiores (ex: 768px e acima) */
 @media screen and (min-width: 768px) {
     .principal__texto {
-        max-width: 600px; 
-    }
-    .principal {
-        /* A imagem padrão 'switzerland-6487204_1920.jpg' já está definida. */
-        /* Se você quiser a imagem 'campo.jpg' para 768px e acima, então descomente a linha abaixo. */
-        /* background-image: url(img/campo.jpg); */ 
-        /* background-size: cover; */
-        padding-top: 3.25rem; /* Ajusta o padding para telas maiores */
+        max-width: 600px;
     }
 }
 
@@ -414,32 +396,10 @@ body {
         font-size: 3.25rem;
         margin-bottom: 2rem;
     }
-
     .principal {
-        /* Se a imagem 'campo.jpg' for apenas para telas entre 368px e 767px,
-           então aqui DEVE voltar para 'switzerland-6487204_1920.jpg'
-           ou manter a imagem padrão definida fora das media queries. */
-        background-image: url('img/switzerland-6487204_1920.jpg'); /* Retorna para a imagem suíça em telas grandes */
+        background-image: url(switzerland-6487204_1920.jpg);
         background-size: cover;
-        padding-top: 12.5rem; /* Padding original para desktop grande */
-    }
 
-    /* Sustentabilidade em desktop (retorna para layout lado a lado) */
-    .sustentabilidade-section {
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-    .sustentabilidade-content {
-        margin-right: 3rem; 
-        text-align: left; 
-    }
-    .sustentabilidade-titulo {
-        text-align: left; 
-    }
-    .sustentabilidade-subtitulo {
-        text-align: left;
-    }
-    .sustentabilidade-image {
-        margin: 0; 
+        padding-top: 3.25rem;
     }
 }
