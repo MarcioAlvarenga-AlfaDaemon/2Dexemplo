@@ -82,7 +82,7 @@ body {
 .cabecalho h1 { /* Título principal do site no cabeçalho */
     margin: 0; 
     font-size: 1.6em;
-    color: var(--preto); /* MUDANÇA: Cor do título do cabeçalho agora é preto */
+    color: var(--preto); /* Cor do título do cabeçalho agora é preto */
     white-space: nowrap; /* Impede que o título quebre a linha */
 }
 
@@ -122,13 +122,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Remover color: var(--branco); daqui para que os elementos internos possam ser pretos */
     text-align: center;
     
-    padding-top: 12.5rem; 
+    padding-top: 12.5rem; /* Padding base para desktop */
     padding-bottom: 12.5rem; 
 
-    /* PROPRIEDADES DA IMAGEM DE FUNDO */
+    /* PROPRIEDADES DA IMAGEM DE FUNDO (Aplicadas por padrão em todas as resoluções) */
     background-image: url('img/vinhedo.jpg'); /* Caminho para a imagem local na pasta img */
     background-size: cover;
     background-position: center center;
@@ -165,18 +164,18 @@ body {
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding-top: 6rem;
+    /* padding-top: 6rem; REMOVIDO AQUI, AGORA É CONTROLADO PELO .principal GERAL OU MEDIA QUERIES */
     margin-bottom: 1.5rem;
-    color: var(--preto); /* MUDANÇA: Cor do título da seção principal agora é preto */
-    text-shadow: none; /* REMOVIDO: sombra para melhor visibilidade do preto */
+    color: var(--preto); 
+    text-shadow: none; 
 }
 
 .principal__texto {
     font-size: 1.25rem;
     line-height: normal;
     margin: 0 auto 2.5rem;
-    color: var(--preto); /* MUDANÇA: Cor do texto da seção principal agora é preto */
-    text-shadow: none; /* REMOVIDO: sombra para melhor visibilidade do preto */
+    color: var(--preto); 
+    text-shadow: none; 
 }
 
 /* --- Estilizando a Seção de Sustentabilidade --- */
@@ -269,7 +268,9 @@ body {
 
 
 /* --- Responsividade Geral --- */
-@media (max-width: 768px) {
+
+/* Mídias para telas pequenas (ex: 368px e abaixo) */
+@media (max-width: 767px) { /* Tudo abaixo de 768px */
     body {
         padding-top: 100px; /* Ajuste para cabeçalho menor em mobile */
     }
@@ -326,7 +327,9 @@ body {
     }
 
     .principal {
-        padding: 60px 15px;
+        padding: 60px 15px; /* Padding ajustado para telas menores */
+        /* REMOVIDAS as propriedades background-image, background-repeat, background-size,
+           pois já estão definidas no estilo base e queremos que a imagem do vinhedo persista. */
     }
 
     .principal__titulo { 
@@ -368,6 +371,20 @@ body {
     }
 }
 
+/* Mídias para telas maiores (ex: 768px e acima) */
+@media screen and (min-width: 768px) {
+    .principal__texto {
+        max-width: 600px; /* Mantém a largura máxima do texto como você tinha */
+    }
+
+    /* REMOVIDAS as propriedades background-image, background-size, padding-top
+       do .principal aqui para evitar sobrescrever a imagem do vinhedo.
+       O padding-top já está definido no estilo base do .principal. */
+    /* .principal {
+        padding-top: 3.25rem; 
+    } */
+}
+
 @media screen and (min-width: 1024px) {
     .container {
         padding-left: calc((100% - 940px)/2);
@@ -378,6 +395,15 @@ body {
         font-size: 3.25rem;
         margin-bottom: 2rem;
     }
+
+    /* REMOVIDAS as propriedades background-image, background-size, padding-top
+       do .principal aqui. Elas já estão no estilo base e não precisam ser repetidas
+       nem sobrescritas com a imagem "campo.jpg". */
+    /* .principal {
+        background-image: url(img/campo.jpg);
+        background-size: cover;
+        padding-top: 3.25rem;
+    } */
 
     /* Sustentabilidade em desktop (retorna para layout lado a lado) */
     .sustentabilidade-section {
