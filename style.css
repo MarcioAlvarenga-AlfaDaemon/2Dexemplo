@@ -161,83 +161,81 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
-    color: var(--branco); /* ALTERADO PARA BRANCO */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adicionado uma sombra para melhor legibilidade */
+    color: var(--branco);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .principal__texto {
     font-size: 1.25rem;
     line-height: normal;
     margin: 0 auto 2.5rem;
-    color: var(--branco); /* ALTERADO PARA BRANCO */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adicionado uma sombra para melhor legibilidade */
+    color: var(--branco);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* --- Estilizando a Seção de Sustentabilidade --- */
-.sustentabilidade-section { 
-    padding: 60px 20px;
-    display: flex; 
-    gap: 30px; 
-    align-items: flex-start;
-    margin-top: 40px; 
-    margin-bottom: 40px; 
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.sustentabilidade-content { 
-    flex: 2; 
-    min-width: 300px; 
-    max-width: 600px;
-}
-
-.sustentabilidade-titulo { 
-    color: var(--cinza-escuro);
-    font-weight: 700;
-    font-size: 2.2em;
-    font-family: var(--fonte-titulo);
-    text-transform: uppercase;
-    text-align: center; 
-    margin-bottom: 20px;
-}
-
-.sustentabilidade-subtitulo { 
-    font-size: 1.1em;
-    font-style: italic; 
-    color: #555;
-    margin-bottom: 15px;
+/* --- NOVOS ESTILOS PARA A SEÇÃO DE INTERCÂMBIO CULTURAL --- */
+.intercambio-cultural-section {
+    padding: 80px 20px;
     text-align: center;
+    background-color: var(--fundo-pagina);
+    margin-bottom: 40px;
 }
 
-.sustentabilidade-section p { 
-    font-size: 1em;
+.intercambio-cultural-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+    color: var(--cor-texto-padrao);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.intercambio-cultural-introducao {
+    font-size: 1.1em;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
 }
 
-.texto--destaque { 
-    font-weight: bold;
-    color: var(--cinza-escuro); 
-}
-
-.sustentabilidade-image { 
-    flex: 1; 
-    max-width: 400px; 
-    min-width: 250px; 
+.intercambio-cultural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.sustentabilidade-image img {
-    max-width: 100%; 
-    height: auto;
-    display: block; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+.intercambio-cultural-item {
+    background-color: var(--branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- Estilos para as seções de Serviços e Contato --- */
-.servicos-section,
+.intercambio-cultural-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.4em;
+    color: var(--verde-cabecalho);
+    margin-top: 0;
+    margin-bottom: 15px;
+    min-height: 2.8em;
+}
+
+.item-descricao {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* --- Estilos para as novas (simples) seções de Tecnologia e Contato --- */
+.tecnologia-section,
 .contato-section {
     padding: 60px 20px;
     text-align: center;
@@ -247,7 +245,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.servicos-section h2,
+.tecnologia-section h2,
 .contato-section h2 {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
@@ -255,7 +253,7 @@ body {
     font-family: var(--fonte-titulo);
 }
 
-.servicos-section p,
+.tecnologia-section p,
 .contato-section p {
     font-size: 1.1em;
     color: #666;
@@ -336,32 +334,44 @@ body {
         padding: 12px 25px;
     }
 
-    .sustentabilidade-section { 
-        flex-direction: column;
-        align-items: center;
+    /* Ajustes para a nova seção de intercâmbio cultural em mobile */
+    .intercambio-cultural-section {
         padding: 40px 15px;
     }
 
-    .sustentabilidade-content,
-    .sustentabilidade-image {
-        min-width: unset;
-        width: 100%;
+    .intercambio-cultural-titulo {
+        font-size: 2em;
     }
 
-    .sustentabilidade-image {
-        margin-top: 20px;
+    .intercambio-cultural-introducao {
+        font-size: 1em;
+        margin-bottom: 30px;
     }
 
-    .servicos-section,
+    .intercambio-cultural-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intercambio-cultural-item {
+        padding: 20px;
+    }
+
+    .item-titulo {
+        font-size: 1.2em;
+        min-height: unset;
+    }
+
+    .tecnologia-section,
     .contato-section {
         padding: 40px 15px;
     }
 
-    .servicos-section h2,
+    .tecnologia-section h2,
     .contato-section h2 {
         font-size: 2em;
     }
 }
+
 @media screen and (min-width: 368px) {
     .principal {
         background-image: url(switzerland-6487204_1920.jpg);
