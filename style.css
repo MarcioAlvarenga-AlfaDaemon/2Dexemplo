@@ -184,7 +184,7 @@ h1, h2, h3 {
 
 /* --- ESTILOS PARA AS SEÇÕES PRINCIPAIS (Intercâmbio Cultural, Tecnologia, Impacto Econômico) --- */
 .intercambio-cultural-section,
-.tecnologia-section,
+.tecnologia-section, /* Adicionado para que a seção de tecnologia use os mesmos estilos de base */
 .impacto-economico-section {
     padding: 80px 20px;
     text-align: center;
@@ -200,7 +200,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-titulo,
-.tecnologia-titulo,
+.tecnologia-titulo, /* Adicionado */
 .impacto-economico-titulo {
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
@@ -210,7 +210,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-introducao,
-.tecnologia-introducao,
+.tecnologia-introducao, /* Adicionado */
 .impacto-economico-introducao {
     font-size: 1.1em;
     color: #666;
@@ -221,7 +221,7 @@ h1, h2, h3 {
 
 /* --- ESTILOS PARA OS ITENS DA GRID (Cartões) --- */
 .intercambio-cultural-grid,
-.tecnologia-grid,
+.tecnologia-grid, /* Adicionado */
 .impacto-economico-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -231,7 +231,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-item,
-.tecnologia-item,
+.tecnologia-item, /* Adicionado */
 .impacto-economico-item {
     background-color: var(--branco);
     padding: 30px;
@@ -243,7 +243,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-item:hover,
-.tecnologia-item:hover,
+.tecnologia-item:hover, /* Adicionado */
 .impacto-economico-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px var(--sombra-media);
@@ -319,32 +319,31 @@ h1, h2, h3 {
 /* Mídias para telas menores (até 767px) - GERALMENTE CELULARES */
 @media (max-width: 767px) { 
     body {
-        padding-top: 100px; /* Ajusta o padding para o cabeçalho menor */
+        padding-top: 100px;
     }
 
     .container-header {
-        flex-direction: column; /* Empilha o título e o menu verticalmente */
-        align-items: center; /* Centraliza os itens empilhados */
-        padding: 15px 20px; /* Ajusta o padding do cabeçalho */
-        gap: 15px; /* Espaçamento entre o título e o menu */
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 20px;
+        gap: 15px;
     }
 
     .cabecalho__titulo { 
-        font-size: 1.8em; /* Reduz o tamanho do título para caber melhor no celular */
-        margin-bottom: 0; /* Remove margem extra inferior */
+        font-size: 1.8em;
+        margin-bottom: 0;
         text-align: center;
-        white-space: normal; /* Permite que o título quebre linha se for muito longo */
+        white-space: normal;
     }
 
-    /* Ocultar a logo se ela existisse e para não atrapalhar */
     .cabecalho__logo { 
         display: none; 
     }
 
     .menu ul {
-        flex-direction: column; /* Empilha os itens do menu verticalmente */
-        gap: 8px; /* Espaçamento entre os links do menu */
-        width: 100%; /* Ocupa a largura total */
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
         text-align: center;
     }
 
@@ -353,32 +352,32 @@ h1, h2, h3 {
     }
 
     .menu a {
-        display: block; /* Faz cada link ocupar a largura total do seu item de lista */
-        width: auto; /* Remove width:100% explícito, deixa o display:block fazer o trabalho */
-        margin: 0 auto; /* Centraliza o botão dentro do item de lista */
-        padding: 10px 0; /* Ajusta o padding vertical dos botões */
+        display: block;
+        width: auto;
+        margin: 0 auto;
+        padding: 10px 0;
         box-sizing: border-box;
     }
 
     .principal {
-        padding: 60px 15px; /* Reduz o padding vertical e horizontal */
+        padding: 60px 15px;
     }
 
     .principal__titulo { 
-        font-size: 2em; /* Ajusta o tamanho do título principal */
+        font-size: 2em;
     }
 
     .principal__texto { 
-        font-size: 1em; /* Ajusta o tamanho do texto principal */
+        font-size: 1em;
     }
 
     .principal__botao { 
-        padding: 12px 25px; /* Ajusta o tamanho do botão principal */
+        padding: 12px 25px;
     }
 
     /* Ajustes para todas as seções de conteúdo em mobile */
     .intercambio-cultural-section,
-    .tecnologia-section,
+    .tecnologia-section, /* Adicionado para responsividade */
     .impacto-economico-section,
     .conclusao-section {
         padding: 40px 15px;
@@ -387,28 +386,28 @@ h1, h2, h3 {
     }
 
     .intercambio-cultural-titulo,
-    .tecnologia-titulo,
+    .tecnologia-titulo, /* Adicionado para responsividade */
     .impacto-economico-titulo,
     .conclusao-titulo {
-        font-size: 1.8em; /* Ajusta o tamanho dos títulos das seções */
+        font-size: 1.8em;
     }
 
     .intercambio-cultural-introducao,
-    .tecnologia-introducao,
+    .tecnologia-introducao, /* Adicionado para responsividade */
     .impacto-economico-introducao {
-        font-size: 0.95em; /* Ajusta o tamanho da introdução */
+        font-size: 0.95em;
         margin-bottom: 30px;
     }
 
     .intercambio-cultural-grid,
-    .tecnologia-grid,
+    .tecnologia-grid, /* Adicionado para responsividade */
     .impacto-economico-grid {
-        grid-template-columns: 1fr; /* Coluna única para itens em mobile */
-        gap: 20px; /* Reduz o espaçamento entre os itens */
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .intercambio-cultural-item,
-    .tecnologia-item,
+    .tecnologia-item, /* Adicionado para responsividade */
     .impacto-economico-item {
         padding: 20px;
         box-shadow: 0 2px 8px var(--sombra-leve);
@@ -416,11 +415,11 @@ h1, h2, h3 {
 
     .item-titulo { 
         font-size: 1.2em;
-        min-height: unset; /* Remove a altura mínima para flexibilidade */
+        min-height: unset;
     }
 
     .item-descricao {
-        font-size: 0.9em; /* Ajusta o tamanho da descrição */
+        font-size: 0.9em;
     }
 
     .conclusao-texto {
@@ -435,23 +434,23 @@ h1, h2, h3 {
 /* Mídias para tablets (entre 768px e 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
-        padding-top: 100px; /* Ajusta para cabeçalho um pouco menor em tablet */
+        padding-top: 100px;
     }
 
     .container-header {
-        padding: 0 30px; /* Ajusta padding lateral para tablet */
+        padding: 0 30px;
     }
 
     .cabecalho__titulo {
-        font-size: 2.2em; /* Um tamanho intermediário para o título */
+        font-size: 2.2em;
     }
 
     .menu ul {
-        gap: 20px; /* Espaçamento entre os itens do menu no tablet */
+        gap: 20px;
     }
 
     .menu a {
-        padding: 8px 15px; /* Ajusta padding dos botões */
+        padding: 8px 15px;
     }
 
     .principal {
@@ -468,7 +467,7 @@ h1, h2, h3 {
     }
     
     .intercambio-cultural-section,
-    .tecnologia-section,
+    .tecnologia-section, /* Adicionado para responsividade */
     .impacto-economico-section,
     .conclusao-section {
         padding: 60px 25px;
@@ -476,16 +475,16 @@ h1, h2, h3 {
     }
 
     .intercambio-cultural-titulo,
-    .tecnologia-titulo,
+    .tecnologia-titulo, /* Adicionado para responsividade */
     .impacto-economico-titulo,
     .conclusao-titulo {
         font-size: 2.2em;
     }
 
     .intercambio-cultural-grid,
-    .tecnologia-grid,
+    .tecnologia-grid, /* Adicionado para responsividade */
     .impacto-economico-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Pode ter 2 colunas ou mais */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
     }
 }
@@ -493,13 +492,13 @@ h1, h2, h3 {
 /* Mídias para telas maiores (1024px e acima) - DESKTOP */
 @media (min-width: 1024px) {
     .container {
-        max-width: 1200px; /* Garante que o container não seja muito grande */
-        padding-left: calc((100% - 1160px)/2); /* Centraliza o conteúdo com mais largura */
+        max-width: 1200px;
+        padding-left: calc((100% - 1160px)/2);
         padding-right: calc((100% - 1160px)/2);
     }
     
     .cabecalho__titulo {
-        font-size: 2.5em; /* Volta ao tamanho original para desktop */
+        font-size: 2.5em;
     }
 
     .principal__titulo {
@@ -509,8 +508,8 @@ h1, h2, h3 {
     .principal {
         background-image: url('switzerland-6487204_1920.jpg');
         background-size: cover;
-        padding-top: 12.5rem; /* Mantém o padding original */
-        padding-bottom: 12.5rem; /* Mantém o padding original */
+        padding-top: 12.5rem;
+        padding-bottom: 12.5rem;
     }
     .principal__texto {
         max-width: 600px;
@@ -518,13 +517,10 @@ h1, h2, h3 {
 }
 
 /* Mídias para o caminho da imagem de fundo específico, se necessário */
-/* Mantido como estava, mas com aspas simples para URL */
 @media screen and (min-width: 368px) {
     .principal {
         background-image: url('switzerland-6487204_1920.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        /* Remover o padding-top aqui se já estiver definido no .principal geral */
-        /* padding-top: 3.25rem; */ /* Este padding já está em .principal ou nas media queries maiores */
     }
 }
