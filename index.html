@@ -10,6 +10,8 @@
 </head>
 <body>
 
+    <input type="checkbox" id="toggleCabecalhoCheckbox" class="toggle-cabecalho-checkbox" aria-hidden="true" hidden>
+
     <header class="cabecalho" id="cabecalho">
         <div class="container-header">
             <h1 class="cabecalho__titulo">A interdependência entre o campo e cidade</h1>
@@ -24,10 +26,10 @@
                 </ul>
             </nav>
         </div>
-        <button class="toggle-cabecalho" id="toggleCabecalho">
-            <i class="fas fa-chevron-up"></i> <span class="toggle-text">Fechar</span>
-        </button>
     </header>
+
+    <label for="toggleCabecalhoCheckbox" class="toggle-label" title="Alternar Menu">
+        <i class="fas fa-chevron-up"></i> </label>
 
     <main>
         <section id="principal" class="principal">
@@ -129,87 +131,5 @@
         <p>&copy; 2025 [Seu Nome Completo]. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleButton = document.getElementById('toggleCabecalho');
-            const cabecalho = document.getElementById('cabecalho');
-            const body = document.body;
-            const icon = toggleButton.querySelector('i');
-            const text = toggleButton.querySelector('.toggle-text');
-
-            // Altura do botão de toggle fixo (ajuste conforme o CSS final do botão fixo)
-            const FIXED_BUTTON_HEIGHT = 40; 
-
-            // Função para calcular a altura real do cabeçalho quando está aberto
-            function getCabecalhoOpenHeight() {
-                const wasClosed = cabecalho.classList.contains('cabecalho--fechado');
-                if (wasClosed) {
-                    cabecalho.classList.remove('cabecalho--fechado');
-                    cabecalho.style.transition = 'none'; 
-                    void cabecalho.offsetHeight; 
-                }
-                const height = cabecalho.offsetHeight; 
-                if (wasClosed) {
-                    cabecalho.classList.add('cabecalho--fechado'); 
-                    void cabecalho.offsetHeight; 
-                    cabecalho.style.transition = ''; 
-                }
-                return height;
-            }
-
-            // Função para ajustar o padding do body
-            function adjustBodyPadding() {
-                if (cabecalho.classList.contains('cabecalho--fechado')) {
-                    body.style.paddingTop = FIXED_BUTTON_HEIGHT + 'px'; 
-                } else {
-                    body.style.paddingTop = getCabecalhoOpenHeight() + 'px';
-                }
-            }
-
-            // Observador para detectar mudanças na altura do cabeçalho (por responsividade, por exemplo)
-            const resizeObserver = new ResizeObserver(entries => {
-                if (!cabecalho.classList.contains('cabecalho--fechado')) {
-                    adjustBodyPadding();
-                }
-            });
-
-            resizeObserver.observe(cabecalho);
-
-            toggleButton.addEventListener('click', function() {
-                cabecalho.classList.toggle('cabecalho--fechado');
-
-                if (cabecalho.classList.contains('cabecalho--fechado')) {
-                    // Cabeçalho fechado: Mostra seta para BAIXO (para abrir) e texto "Abrir"
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down'); // Nova seta para baixo
-                    text.textContent = 'Abrir'; 
-                    toggleButton.classList.add('toggle-cabecalho--closed'); 
-                } else {
-                    // Cabeçalho aberto: Mostra seta para CIMA (para fechar) e texto "Fechar"
-                    icon.classList.remove('fa-chevron-down'); // Remove seta para baixo
-                    icon.classList.add('fa-chevron-up'); 
-                    text.textContent = 'Fechar'; 
-                    toggleButton.classList.remove('toggle-cabecalho--closed'); 
-                }
-                adjustBodyPadding();
-            });
-
-            // Configuração inicial ao carregar a página
-            adjustBodyPadding(); 
-            
-            // Define o estado inicial do botão de toggle
-            if (cabecalho.classList.contains('cabecalho--fechado')) {
-                icon.classList.remove('fa-chevron-up');
-                icon.classList.add('fa-chevron-down');
-                text.textContent = 'Abrir';
-                toggleButton.classList.add('toggle-cabecalho--closed');
-            } else {
-                icon.classList.remove('fa-chevron-down'); // Garante que a seta para baixo não esteja lá se começar aberto
-                icon.classList.add('fa-chevron-up');
-                text.textContent = 'Fechar';
-                toggleButton.classList.remove('toggle-cabecalho--closed');
-            }
-        });
-    </script>
-</body>
+    </body>
 </html>
