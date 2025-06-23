@@ -19,11 +19,16 @@ body {
     margin: 0;
     padding: 0; 
     padding-top: 120px; 
-    font-family: var(--fonte-principal);
-    background-color: var(--fundo-pagina); /* Usa a nova variável de cor de fundo */
+    font-family: 'Open Sans', sans-serif; /* Usando Open Sans como fonte principal */
+    background-color: var(--fundo-pagina);
     line-height: 1.6;
     color: var(--cor-texto-padrao);
 }
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Usando Montserrat para títulos */
+}
+
 
 .container {
     max-width: 1200px;
@@ -54,7 +59,7 @@ body {
 /* --- Estilizando o Cabeçalho FIXO --- */
 .cabecalho{
     display: flex;
-    justify-content: space-between; /* Ajuste aqui para separar os itens */
+    justify-content: center; /* Centraliza o conteúdo inicial do cabeçalho */
     align-items: center;
     background-color: var(--verde-cabecalho);
     padding: 20px 0;
@@ -72,25 +77,24 @@ body {
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
-    justify-content: space-between; /* Garante que os itens internos se espalhem */
+    justify-content: space-between; /* AQUI: Empurra o título para um lado e o menu para o outro */
     align-items: center;
     flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-    /* gap: 30px; */ /* Removido para usar space-between de forma mais eficaz */
 }
 
-.cabecalho__titulo { /* Alterado de h1 para a classe específica do título */
+.cabecalho__titulo { 
     margin: 0; 
-    font-size: 2.2em; /* Aumenta o tamanho da fonte para destacar */
+    font-size: 2.5em; /* Aumenta o tamanho da fonte para destacar */
     font-weight: 700; /* Torna a fonte mais negrita */
     color: var(--preto);
-    white-space: nowrap;
-    /* padding-right: 15px; */ /* Pode ser removido ou ajustado conforme o espaçamento de justify-content */
+    white-space: nowrap; /* Evita que o título quebre em várias linhas */
 }
 
+/* Se você quiser adicionar uma logo, este é o estilo */
 .cabecalho__logo {
-    height: 80px;
+    height: 80px; /* Ajuste o tamanho conforme necessário */
     width: auto;
-    margin: 0 20px;
+    margin-left: 20px; /* Espaçamento da logo para o menu */
 }
 
 /* --- Estilo do Menu (Links de Navegação) --- */
@@ -125,7 +129,7 @@ body {
     align-items: center;
     text-align: center;
     
-    background-image: url('img/switzerland-6487204_1920.jpg'); /* IMAGEM PADRÃO */
+    background-image: url('img/switzerland-6487204_1920.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -138,7 +142,6 @@ body {
     overflow: hidden;
 }
 
-/* Pseudo-elemento para criar a camada de transparência (overlay) */
 .principal::before {
     content: '';
     position: absolute;
@@ -150,7 +153,6 @@ body {
     z-index: 1;
 }
 
-/* Títulos, textos e botões da seção principal devem ficar acima do overlay */
 .principal__titulo, 
 .principal__texto, 
 .principal__botao { 
@@ -159,7 +161,7 @@ body {
 }
 
 .principal__titulo {
-    font-family: var(--fonte-titulo);
+    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -196,7 +198,7 @@ body {
 .intercambio-cultural-titulo,
 .tecnologia-titulo,
 .impacto-economico-titulo {
-    font-family: var(--fonte-titulo);
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
@@ -243,8 +245,8 @@ body {
     box-shadow: 0 6px 20px var(--sombra-media);
 }
 
-.item-titulo {
-    font-family: var(--fonte-titulo);
+.item-titulo { 
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.4em;
     color: var(--verde-cabecalho);
     margin-top: 0;
@@ -252,7 +254,7 @@ body {
     min-height: 2.8em;
 }
 
-.item-descricao {
+.item-descricao { 
     font-size: 0.95em;
     color: #555;
     line-height: 1.7;
@@ -278,7 +280,7 @@ body {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
-    font-family: var(--fonte-titulo);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .conclusao-texto {
@@ -296,17 +298,17 @@ body {
     }
 
     .container-header {
-        flex-direction: column;
+        flex-direction: column; /* Coloca o título e o menu em coluna */
         align-items: center;
         padding: 20px;
-        gap: 15px;
+        gap: 15px; /* Espaçamento entre o título e o menu em mobile */
     }
 
-    .cabecalho__titulo { /* Ajuste para o título em telas menores */
-        font-size: 1.8em; /* Reduz o tamanho da fonte em telas menores */
+    .cabecalho__titulo { 
+        font-size: 1.8em;
         margin-bottom: 15px;
         text-align: center;
-        padding-right: 0;
+        white-space: normal; /* Permite que o título quebre linha em telas pequenas */
     }
 
     .cabecalho__logo { 
@@ -318,7 +320,7 @@ body {
 
     @media (max-width: 568px) {
         .cabecalho__logo {
-            display: none;
+            display: none; /* Esconde a logo em telas muito pequenas */
         }
         body {
             padding-top: 80px; 
@@ -329,7 +331,7 @@ body {
     }
 
     .menu ul {
-        flex-direction: column;
+        flex-direction: column; 
         gap: 8px;
         width: 100%;
         text-align: center;
@@ -363,7 +365,6 @@ body {
         padding: 12px 25px;
     }
 
-    /* Ajustes para todas as seções principais em mobile */
     .intercambio-cultural-section,
     .tecnologia-section,
     .impacto-economico-section,
@@ -412,7 +413,7 @@ body {
 
 @media screen and (min-width: 368px) {
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
+        background-image: url('img/switzerland-6487204_1920.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 3.25rem;
@@ -436,7 +437,7 @@ body {
         margin-bottom: 2rem;
     }
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
+        background-image: url('img/switzerland-6487204_1920.jpg');
         background-size: cover;
         padding-top: 3.25rem;
     }
