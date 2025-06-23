@@ -19,14 +19,10 @@ body {
     margin: 0;
     padding: 0; 
     padding-top: 120px; 
-    font-family: 'Open Sans', sans-serif;
-    background-color: var(--fundo-pagina);
+    font-family: var(--fonte-principal);
+    background-color: var(--fundo-pagina); /* Usa a nova variável de cor de fundo */
     line-height: 1.6;
     color: var(--cor-texto-padrao);
-}
-
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -58,10 +54,10 @@ h1, h2, h3 {
 /* --- Estilizando o Cabeçalho FIXO --- */
 .cabecalho{
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Ajuste aqui para separar os itens */
     align-items: center;
     background-color: var(--verde-cabecalho);
-    padding: 20px 0; /* Aumentado um pouco o padding vertical para mais espaço */
+    padding: 20px 0;
     color: var(--branco);
     
     position: fixed;
@@ -74,26 +70,27 @@ h1, h2, h3 {
 .container-header {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 60px; /* AUMENTADO O PADDING HORIZONTAL PARA MAIS ESPAÇAMENTO NAS LATERAIS */
+    padding: 0 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Garante que os itens internos se espalhem */
     align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    /* gap: 30px; */ /* Removido para usar space-between de forma mais eficaz */
 }
 
-.cabecalho__titulo { 
+.cabecalho__titulo { /* Alterado de h1 para a classe específica do título */
     margin: 0; 
-    font-size: 2.5em; 
-    font-weight: 700; 
+    font-size: 2.2em; /* Aumenta o tamanho da fonte para destacar */
+    font-weight: 700; /* Torna a fonte mais negrita */
     color: var(--preto);
-    white-space: nowrap; 
+    white-space: nowrap;
+    /* padding-right: 15px; */ /* Pode ser removido ou ajustado conforme o espaçamento de justify-content */
 }
 
 .cabecalho__logo {
-    height: 80px; 
+    height: 80px;
     width: auto;
-    margin-left: 20px; 
+    margin: 0 20px;
 }
 
 /* --- Estilo do Menu (Links de Navegação) --- */
@@ -102,14 +99,14 @@ h1, h2, h3 {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 35px; /* AUMENTADO O ESPAÇAMENTO ENTRE OS BOTÕES DO MENU */
+    gap: 25px;
 }
 
 .menu a {
     font-size: 1.1em;
     color: var(--branco);
     text-decoration: none;
-    padding: 8px 18px; /* AUMENTADO O PADDING NOS BOTÕES PARA DEIXÁ-LOS MAIORES */
+    padding: 8px 15px;
     transition: all 0.3s ease;
     border: 1px solid var(--branco);
     border-radius: 4px;
@@ -128,7 +125,7 @@ h1, h2, h3 {
     align-items: center;
     text-align: center;
     
-    background-image: url('img/switzerland-6487204_1920.jpg');
+    background-image: url('img/switzerland-6487204_1920.jpg'); /* IMAGEM PADRÃO */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -141,6 +138,7 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
+/* Pseudo-elemento para criar a camada de transparência (overlay) */
 .principal::before {
     content: '';
     position: absolute;
@@ -152,6 +150,7 @@ h1, h2, h3 {
     z-index: 1;
 }
 
+/* Títulos, textos e botões da seção principal devem ficar acima do overlay */
 .principal__titulo, 
 .principal__texto, 
 .principal__botao { 
@@ -160,7 +159,7 @@ h1, h2, h3 {
 }
 
 .principal__titulo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fonte-titulo);
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -197,7 +196,7 @@ h1, h2, h3 {
 .intercambio-cultural-titulo,
 .tecnologia-titulo,
 .impacto-economico-titulo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fonte-titulo);
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
@@ -244,8 +243,8 @@ h1, h2, h3 {
     box-shadow: 0 6px 20px var(--sombra-media);
 }
 
-.item-titulo { 
-    font-family: 'Montserrat', sans-serif;
+.item-titulo {
+    font-family: var(--fonte-titulo);
     font-size: 1.4em;
     color: var(--verde-cabecalho);
     margin-top: 0;
@@ -253,7 +252,7 @@ h1, h2, h3 {
     min-height: 2.8em;
 }
 
-.item-descricao { 
+.item-descricao {
     font-size: 0.95em;
     color: #555;
     line-height: 1.7;
@@ -279,7 +278,7 @@ h1, h2, h3 {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fonte-titulo);
 }
 
 .conclusao-texto {
@@ -299,15 +298,15 @@ h1, h2, h3 {
     .container-header {
         flex-direction: column;
         align-items: center;
-        padding: 20px; /* Ajustado para telas menores */
+        padding: 20px;
         gap: 15px;
     }
 
-    .cabecalho__titulo { 
-        font-size: 1.8em;
+    .cabecalho__titulo { /* Ajuste para o título em telas menores */
+        font-size: 1.8em; /* Reduz o tamanho da fonte em telas menores */
         margin-bottom: 15px;
         text-align: center;
-        white-space: normal;
+        padding-right: 0;
     }
 
     .cabecalho__logo { 
@@ -330,7 +329,7 @@ h1, h2, h3 {
     }
 
     .menu ul {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 8px;
         width: 100%;
         text-align: center;
@@ -364,6 +363,7 @@ h1, h2, h3 {
         padding: 12px 25px;
     }
 
+    /* Ajustes para todas as seções principais em mobile */
     .intercambio-cultural-section,
     .tecnologia-section,
     .impacto-economico-section,
@@ -412,7 +412,7 @@ h1, h2, h3 {
 
 @media screen and (min-width: 368px) {
     .principal {
-        background-image: url(img/switzerland-6487204_1920.jpg);
+        background-image: url(switzerland-6487204_1920.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 3.25rem;
@@ -436,7 +436,7 @@ h1, h2, h3 {
         margin-bottom: 2rem;
     }
     .principal {
-        background-image: url(img/switzerland-6487204_1920.jpg);
+        background-image: url(switzerland-6487204_1920.jpg);
         background-size: cover;
         padding-top: 3.25rem;
     }
