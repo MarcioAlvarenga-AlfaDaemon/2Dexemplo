@@ -12,6 +12,9 @@
     --borda-suave: #ddd; /* Cor para bordas sutis */
     --sombra-leve: rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     --sombra-media: rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
+    /* Adicionando variáveis para as fontes */
+    --fonte-principal: 'Open Sans', sans-serif;
+    --fonte-titulo: 'Montserrat', sans-serif;
 }
 
 /* --- Reset Básico e Estilos Globais --- */
@@ -19,10 +22,14 @@ body {
     margin: 0;
     padding: 0; 
     padding-top: 120px; 
-    font-family: var(--fonte-principal);
-    background-color: var(--fundo-pagina); /* Usa a nova variável de cor de fundo */
+    font-family: var(--fonte-principal); /* Usando a variável de fonte */
+    background-color: var(--fundo-pagina);
     line-height: 1.6;
     color: var(--cor-texto-padrao);
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
 }
 
 .container {
@@ -54,7 +61,7 @@ body {
 /* --- Estilizando o Cabeçalho FIXO --- */
 .cabecalho{
     display: flex;
-    justify-content: space-between; /* Ajuste aqui para separar os itens */
+    justify-content: center; /* Centraliza o container-header */
     align-items: center;
     background-color: var(--verde-cabecalho);
     padding: 20px 0;
@@ -70,27 +77,27 @@ body {
 .container-header {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 60px; /* AUMENTADO O PADDING HORIZONTAL PARA MAIS ESPAÇAMENTO NAS LATERAIS */
     display: flex;
-    justify-content: space-between; /* Garante que os itens internos se espalhem */
+    justify-content: space-between; /* ESSENCIAL: Empurra o primeiro item (título) para a esquerda e o último (menu) para a direita */
     align-items: center;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-    /* gap: 30px; */ /* Removido para usar space-between de forma mais eficaz */
+    flex-wrap: wrap; /* Permite que o menu quebre em telas menores */
+    width: 100%; /* Garante que o container-header ocupe toda a largura disponível no cabeçalho */
 }
 
-.cabecalho__titulo { /* Alterado de h1 para a classe específica do título */
+.cabecalho__titulo { 
     margin: 0; 
-    font-size: 2.2em; /* Aumenta o tamanho da fonte para destacar */
-    font-weight: 700; /* Torna a fonte mais negrita */
+    font-size: 2.5em; 
+    font-weight: 700; 
     color: var(--preto);
-    white-space: nowrap;
-    /* padding-right: 15px; */ /* Pode ser removido ou ajustado conforme o espaçamento de justify-content */
+    white-space: nowrap; /* Impede que o título quebre linha em telas grandes */
 }
 
+/* Se você quiser adicionar uma logo, este é o estilo */
 .cabecalho__logo {
-    height: 80px;
+    height: 80px; 
     width: auto;
-    margin: 0 20px;
+    margin-left: 20px; 
 }
 
 /* --- Estilo do Menu (Links de Navegação) --- */
@@ -99,14 +106,14 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 25px;
+    gap: 35px; /* AUMENTADO O ESPAÇAMENTO ENTRE OS BOTÕES DO MENU */
 }
 
 .menu a {
     font-size: 1.1em;
     color: var(--branco);
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 18px; /* AUMENTADO O PADDING NOS BOTÕES PARA DEIXÁ-LOS MAIORES */
     transition: all 0.3s ease;
     border: 1px solid var(--branco);
     border-radius: 4px;
@@ -125,7 +132,7 @@ body {
     align-items: center;
     text-align: center;
     
-    background-image: url('img/switzerland-6487204_1920.jpg'); /* IMAGEM PADRÃO */
+    background-image: url('switzerland-6487204_1920.jpg'); /* Ajustado para ser como nos seus arquivos */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -138,7 +145,6 @@ body {
     overflow: hidden;
 }
 
-/* Pseudo-elemento para criar a camada de transparência (overlay) */
 .principal::before {
     content: '';
     position: absolute;
@@ -150,7 +156,6 @@ body {
     z-index: 1;
 }
 
-/* Títulos, textos e botões da seção principal devem ficar acima do overlay */
 .principal__titulo, 
 .principal__texto, 
 .principal__botao { 
@@ -159,7 +164,7 @@ body {
 }
 
 .principal__titulo {
-    font-family: var(--fonte-titulo);
+    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -196,7 +201,7 @@ body {
 .intercambio-cultural-titulo,
 .tecnologia-titulo,
 .impacto-economico-titulo {
-    font-family: var(--fonte-titulo);
+    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
@@ -243,8 +248,8 @@ body {
     box-shadow: 0 6px 20px var(--sombra-media);
 }
 
-.item-titulo {
-    font-family: var(--fonte-titulo);
+.item-titulo { 
+    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
     font-size: 1.4em;
     color: var(--verde-cabecalho);
     margin-top: 0;
@@ -252,7 +257,7 @@ body {
     min-height: 2.8em;
 }
 
-.item-descricao {
+.item-descricao { 
     font-size: 0.95em;
     color: #555;
     line-height: 1.7;
@@ -278,12 +283,33 @@ body {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
-    font-family: var(--fonte-titulo);
+    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
 }
 
 .conclusao-texto {
     font-size: 1.1em;
     color: #666;
+}
+
+/* --- ESTILOS PARA O RODAPÉ --- */
+.rodape-linha {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin: 50px 0 20px 0; /* Adiciona margem superior para afastar do conteúdo */
+}
+
+.rodape {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--fundo-pagina); /* A mesma cor de fundo do body */
+    color: var(--cor-texto-padrao);
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+}
+
+.rodape p {
+    margin: 0;
 }
 
 
@@ -306,7 +332,7 @@ body {
         font-size: 1.8em; /* Reduz o tamanho da fonte em telas menores */
         margin-bottom: 15px;
         text-align: center;
-        padding-right: 0;
+        white-space: normal; /* Permite quebrar linha em telas menores */
     }
 
     .cabecalho__logo { 
@@ -408,11 +434,15 @@ body {
     .conclusao-texto {
         font-size: 1em;
     }
+
+    .rodape-linha {
+        margin: 30px 0 15px 0;
+    }
 }
 
 @media screen and (min-width: 368px) {
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
+        background-image: url('switzerland-6487204_1920.jpg'); /* Corrigido o caminho da imagem */
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 3.25rem;
@@ -436,7 +466,7 @@ body {
         margin-bottom: 2rem;
     }
     .principal {
-        background-image: url(switzerland-6487204_1920.jpg);
+        background-image: url('switzerland-6487204_1920.jpg'); /* Corrigido o caminho da imagem */
         background-size: cover;
         padding-top: 3.25rem;
     }
