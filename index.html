@@ -6,10 +6,11 @@
     <title>A Interdependência entre Campo e Cidade</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="cabecalho">
+    <header class="cabecalho" id="cabecalho">
         <div class="container-header">
             <h1 class="cabecalho__titulo">A interdependência entre o campo e cidade</h1>
             
@@ -22,6 +23,8 @@
                     <li><a href="#conclusao">Conclusão</a></li>
                 </ul>
             </nav>
+            <button class="toggle-cabecalho" id="toggleCabecalho">
+                <i class="fas fa-chevron-up"></i> </button>
         </div>
     </header>
 
@@ -125,5 +128,68 @@
         <p>&copy; 2025 [Seu Nome Completo]. Todos os direitos reservados.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleCabecalho');
+            const cabecalho = document.getElementById('cabecalho');
+            const body = document.body;
+            const cabecalhoHeight = cabecalho.offsetHeight; // Altura original do cabeçalho
+
+            // Variáveis para armazenar a altura do cabeçalho em diferentes estados
+            let currentCabecalhoHeight = cabecalhoHeight; // Altura atual do cabeçalho
+            let bodyInitialPadding = parseFloat(window.getComputedStyle(body).paddingTop); // Padding inicial do body
+
+            // Função para ajustar o padding do body com base na altura do cabeçalho
+            function adjustBodyPadding() {
+                if (cabecalho.classList.contains('cabecalho--fechado')) {
+                    // Quando fechado, padding do body deve ser pequeno ou zero
+                    body.style.paddingTop = '20px'; // Um padding mínimo para não colar no topo
+                } else {
+                    // Quando aberto, padding do body deve ser a altura do cabeçalho
+                    body.style.paddingTop = currentCabecalhoHeight + 'px';
+                }
+            }
+
+            // Observador para detectar mudanças na altura do cabeçalho (por responsividade, por exemplo)
+            const resizeObserver = new ResizeObserver(entries => {
+                for (let entry of entries) {
+                    if (entry.target === cabecalho) {
+                        // Se a altura do cabeçalho mudou (devido a media queries, etc.)
+                        const newCabecalhoHeight = entry.contentRect.height;
+                        if (currentCabecalhoHeight !== newCabecalhoHeight) {
+                            currentCabecalhoHeight = newCabecalhoHeight;
+                            // Reajusta o padding do body se o cabeçalho estiver aberto
+                            if (!cabecalho.classList.contains('cabecalho--fechado')) {
+                                adjustBodyPadding();
+                            }
+                        }
+                    }
+                }
+            });
+
+            resizeObserver.observe(cabecalho); // Começa a observar o cabeçalho
+
+            toggleButton.addEventListener('click', function() {
+                cabecalho.classList.toggle('cabecalho--fechado'); // Alterna a classe que esconde/mostra
+
+                const icon = toggleButton.querySelector('i');
+                if (cabecalho.classList.contains('cabecalho--fechado')) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down'); // Muda para seta para baixo
+                    // Quando o cabeçalho estiver fechado, o padding superior do body é mínimo
+                    body.style.paddingTop = '20px'; 
+                } else {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up'); // Muda para seta para cima
+                    // Quando o cabeçalho estiver aberto, o padding superior do body é a altura do cabeçalho
+                    body.style.paddingTop = currentCabecalhoHeight + 'px';
+                }
+            });
+
+            // Ajusta o padding inicial do body para a altura do cabeçalho ao carregar
+            // Este ajuste inicial é importante para garantir que o conteúdo não fique escondido sob o cabeçalho
+            body.style.paddingTop = currentCabecalhoHeight + 'px';
+        });
+    </script>
 </body>
 </html>

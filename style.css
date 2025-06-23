@@ -21,11 +21,12 @@
 body {
     margin: 0;
     padding: 0; 
-    padding-top: 120px; 
+    /* padding-top será controlado pelo JavaScript */
     font-family: var(--fonte-principal); /* Usando a variável de fonte */
     background-color: var(--fundo-pagina);
     line-height: 1.6;
     color: var(--cor-texto-padrao);
+    transition: padding-top 0.3s ease; /* Transição suave para o padding do body */
 }
 
 /* Aplicando as fontes nos elementos apropriados */
@@ -73,26 +74,36 @@ h1, h2, h3 {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, height 0.3s ease, padding 0.3s ease; /* Transições para suavizar o toggle */
+    /* height: auto;  Vai ser ajustado pelo JS/conteúdo */
+    overflow: hidden; /* Garante que o conteúdo que está sendo "escondido" não apareça */
+}
+
+/* Classe para quando o cabeçalho estiver fechado */
+.cabecalho--fechado {
+    transform: translateY(calc(-100% + 20px)); /* Desliza para cima, deixando 20px visíveis (altura do botão) */
+    /* height: 20px; /* Altura mínima quando fechado, ajuste conforme o botão */
+    /* padding: 0; */ /* Remove padding quando fechado para ajudar na altura */
 }
 
 .container-header {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 60px; /* Mantido o padding lateral para espaçamento */
+    padding: 0 60px;
     display: flex;
-    justify-content: space-between; /* Empurra o título para um lado e o menu para o outro */
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    flex-wrap: wrap;
     width: 100%;
+    position: relative; /* Para posicionar o botão de toggle */
 }
 
 .cabecalho__titulo { 
     margin: 0; 
-    font-size: 2.5em; /* VOLTOU PARA O TAMANHO ORIGINAL */
+    font-size: 2.5em;
     font-weight: 700; 
     color: var(--preto);
-    white-space: nowrap; /* Mantém o título em uma linha, se houver espaço */
-    /* Removido font-family aqui para usar o do h1 geral */
+    white-space: nowrap;
 }
 
 .cabecalho__logo {
@@ -107,14 +118,14 @@ h1, h2, h3 {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 35px; /* Espaçamento entre os botões */
+    gap: 35px;
 }
 
 .menu a {
     font-size: 1.1em;
     color: var(--branco);
     text-decoration: none;
-    padding: 8px 18px; /* Padding nos botões */
+    padding: 8px 18px;
     transition: all 0.3s ease;
     border: 1px solid var(--branco);
     border-radius: 4px;
@@ -124,6 +135,56 @@ h1, h2, h3 {
     background-color: #f7e1ee;
     color: var(--cor-texto-padrao);
     border-color: #f7e1ee;
+}
+
+/* --- Estilizando o Botão de Toggle do Cabeçalho --- */
+.toggle-cabecalho {
+    background-color: var(--verde-cabecalho); /* Mesmo fundo do cabeçalho */
+    color: var(--branco);
+    border: 1px solid var(--branco);
+    border-radius: 50%; /* Faz um círculo */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: absolute; /* Posição absoluta dentro do container-header */
+    top: 50%; /* Centraliza verticalmente */
+    right: 20px; /* Distância da borda direita */
+    transform: translateY(-50%); /* Ajuste fino para centralizar */
+    box-shadow: 0 2px 5px var(--sombra-media);
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    z-index: 1001; /* Garante que esteja acima do menu se houver sobreposição */
+}
+
+.toggle-cabecalho:hover {
+    background-color: #0056b3; /* Cor de hover */
+    transform: translateY(-50%) scale(1.05); /* Pequeno efeito de escala */
+}
+
+/* Ajusta a posição do botão quando o cabeçalho está fechado para que ele permaneça visível */
+.cabecalho--fechado .toggle-cabecalho {
+    position: fixed; /* Mudar para fixed para que ele fique no topo da tela */
+    top: 0px; /* No topo da tela */
+    right: 20px; /* Na direita */
+    transform: none; /* Resetar a transformação para que top/right funcionem como esperado */
+    border-radius: 0 0 5px 5px; /* Arredondar só a parte de baixo */
+    width: 60px; /* Um pouco mais largo */
+    height: 20px; /* Mais baixo */
+    background-color: #0056b3; /* Uma cor diferente para indicar que está "escondido" */
+    font-size: 0.9em;
+    padding-top: 5px;
+}
+
+
+/* Quando o cabeçalho está fechado, o menu e o título desaparecem */
+.cabecalho--fechado .menu,
+.cabecalho--fechado .cabecalho__titulo {
+    opacity: 0;
+    pointer-events: none; /* Desabilita interações com o menu/título escondido */
+    transition: opacity 0.3s ease;
 }
 
 /* --- Estilizando a Seção Principal com Imagem de Fundo e Transparência --- */
@@ -184,7 +245,7 @@ h1, h2, h3 {
 
 /* --- ESTILOS PARA AS SEÇÕES PRINCIPAIS (Intercâmbio Cultural, Tecnologia, Impacto Econômico) --- */
 .intercambio-cultural-section,
-.tecnologia-section, /* Adicionado para que a seção de tecnologia use os mesmos estilos de base */
+.tecnologia-section, 
 .impacto-economico-section {
     padding: 80px 20px;
     text-align: center;
@@ -200,7 +261,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-titulo,
-.tecnologia-titulo, /* Adicionado */
+.tecnologia-titulo, 
 .impacto-economico-titulo {
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
@@ -210,7 +271,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-introducao,
-.tecnologia-introducao, /* Adicionado */
+.tecnologia-introducao, 
 .impacto-economico-introducao {
     font-size: 1.1em;
     color: #666;
@@ -221,7 +282,7 @@ h1, h2, h3 {
 
 /* --- ESTILOS PARA OS ITENS DA GRID (Cartões) --- */
 .intercambio-cultural-grid,
-.tecnologia-grid, /* Adicionado */
+.tecnologia-grid, 
 .impacto-economico-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -231,7 +292,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-item,
-.tecnologia-item, /* Adicionado */
+.tecnologia-item, 
 .impacto-economico-item {
     background-color: var(--branco);
     padding: 30px;
@@ -243,7 +304,7 @@ h1, h2, h3 {
 }
 
 .intercambio-cultural-item:hover,
-.tecnologia-item:hover, /* Adicionado */
+.tecnologia-item:hover, 
 .impacto-economico-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px var(--sombra-media);
@@ -319,7 +380,7 @@ h1, h2, h3 {
 /* Mídias para telas menores (até 767px) - GERALMENTE CELULARES */
 @media (max-width: 767px) { 
     body {
-        padding-top: 100px;
+        padding-top: 100px; /* Padding inicial para mobile, será ajustado pelo JS */
     }
 
     .container-header {
@@ -377,7 +438,7 @@ h1, h2, h3 {
 
     /* Ajustes para todas as seções de conteúdo em mobile */
     .intercambio-cultural-section,
-    .tecnologia-section, /* Adicionado para responsividade */
+    .tecnologia-section, 
     .impacto-economico-section,
     .conclusao-section {
         padding: 40px 15px;
@@ -386,28 +447,28 @@ h1, h2, h3 {
     }
 
     .intercambio-cultural-titulo,
-    .tecnologia-titulo, /* Adicionado para responsividade */
+    .tecnologia-titulo, 
     .impacto-economico-titulo,
     .conclusao-titulo {
         font-size: 1.8em;
     }
 
     .intercambio-cultural-introducao,
-    .tecnologia-introducao, /* Adicionado para responsividade */
+    .tecnologia-introducao, 
     .impacto-economico-introducao {
         font-size: 0.95em;
         margin-bottom: 30px;
     }
 
     .intercambio-cultural-grid,
-    .tecnologia-grid, /* Adicionado para responsividade */
+    .tecnologia-grid, 
     .impacto-economico-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .intercambio-cultural-item,
-    .tecnologia-item, /* Adicionado para responsividade */
+    .tecnologia-item, 
     .impacto-economico-item {
         padding: 20px;
         box-shadow: 0 2px 8px var(--sombra-leve);
@@ -429,12 +490,27 @@ h1, h2, h3 {
     .rodape-linha {
         margin: 30px 0 15px 0;
     }
+
+    /* Ajustes para o botão de toggle em mobile */
+    .toggle-cabecalho {
+        right: 15px; /* Ajusta a posição no mobile */
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    .cabecalho--fechado .toggle-cabecalho {
+        right: 15px;
+        width: 50px;
+        height: 20px;
+        font-size: 0.8em;
+    }
 }
 
 /* Mídias para tablets (entre 768px e 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     body {
-        padding-top: 100px;
+        padding-top: 100px; /* Padding inicial para tablet, será ajustado pelo JS */
     }
 
     .container-header {
@@ -467,7 +543,7 @@ h1, h2, h3 {
     }
     
     .intercambio-cultural-section,
-    .tecnologia-section, /* Adicionado para responsividade */
+    .tecnologia-section, 
     .impacto-economico-section,
     .conclusao-section {
         padding: 60px 25px;
@@ -475,17 +551,22 @@ h1, h2, h3 {
     }
 
     .intercambio-cultural-titulo,
-    .tecnologia-titulo, /* Adicionado para responsividade */
+    .tecnologia-titulo, 
     .impacto-economico-titulo,
     .conclusao-titulo {
         font-size: 2.2em;
     }
 
     .intercambio-cultural-grid,
-    .tecnologia-grid, /* Adicionado para responsividade */
+    .tecnologia-grid, 
     .impacto-economico-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
+    }
+
+    /* Ajustes para o botão de toggle em tablet */
+    .toggle-cabecalho {
+        right: 20px; /* Mantém a posição padrão */
     }
 }
 
