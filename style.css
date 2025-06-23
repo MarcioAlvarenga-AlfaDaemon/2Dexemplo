@@ -8,10 +8,12 @@
     --cinza-claro:#9c9992;
     --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
     --fundo-pagina: #E0FFD1; /* Cor de fundo verde lima! */
-    --cor-texto-padrao: #333; /* Cor de texto padrão */
+    --cor-texto-padrao: #333; /* Cor de texto padrão (para títulos e textos normais) */
     --borda-suave: #ddd; /* Cor para bordas sutis */
     --sombra-leve: rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     --sombra-media: rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
+    --verde-cartao: #1a5d1a; /* Novo verde escuro para os cartões */
+    --cor-texto-cartao: var(--branco); /* Cor do texto dentro dos cartões */
 }
 
 /* --- Reset Básico e Estilos Globais --- */
@@ -179,31 +181,28 @@ body {
 .intercambio-cultural-section {
     padding: 80px 20px;
     text-align: center;
-    background-color: var(--fundo-pagina); /* Fundo da seção continua o verde lima */
     margin-bottom: 40px;
-    /* Adicionado para dar um "recuo" e destaque ao bloco da seção */
     border-radius: 10px;
     box-shadow: 0 8px 20px var(--sombra-media); /* Sombra mais visível para a seção */
     padding-top: 50px; /* Ajusta o padding para compensar a sombra e borda */
     padding-bottom: 50px;
     border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção, se desejar que ela seja uma "caixa" */
+    background-color: var(--fundo-pagina); /* Fundo da seção continua o verde lima para o contêiner geral */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
     max-width: 1100px; /* Limita a largura da caixa */
-
 }
 
 .intercambio-cultural-titulo {
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
-    color: var(--cor-texto-padrao);
+    color: var(--cor-texto-padrao); /* Cor padrão para o título da seção */
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .intercambio-cultural-introducao {
     font-size: 1.1em;
-    color: #666;
+    color: #666; /* Cor padrão para a introdução da seção */
     max-width: 800px;
     margin: 0 auto 50px auto;
     line-height: 1.8;
@@ -218,13 +217,13 @@ body {
 }
 
 .intercambio-cultural-item {
-    background-color: var(--branco); /* Itens internos continuam brancos */
+    background-color: var(--verde-cartao); /* NOVO: Fundo verde escuro para os itens */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--sombra-leve); /* Sombra nos itens */
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--borda-suave); /* Borda para cada item */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda mais clara para contraste */
 }
 
 .intercambio-cultural-item:hover {
@@ -235,7 +234,7 @@ body {
 .item-titulo { /* Compartilhado entre Intercâmbio e Tecnologia */
     font-family: var(--fonte-titulo);
     font-size: 1.4em;
-    color: var(--verde-cabecalho);
+    color: var(--cor-texto-cartao); /* NOVO: Cor do texto do título do cartão */
     margin-top: 0;
     margin-bottom: 15px;
     min-height: 2.8em;
@@ -243,7 +242,7 @@ body {
 
 .item-descricao { /* Compartilhado entre Intercâmbio e Tecnologia */
     font-size: 0.95em;
-    color: #555;
+    color: var(--cor-texto-cartao); /* NOVO: Cor do texto da descrição do cartão */
     line-height: 1.7;
 }
 
@@ -257,7 +256,7 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção, se desejar que ela seja uma "caixa" */
+    background-color: var(--fundo-pagina); /* Fundo da seção continua o verde lima para o contêiner geral */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
     max-width: 1100px; /* Limita a largura da caixa */
 }
@@ -265,14 +264,14 @@ body {
 .tecnologia-titulo {
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
-    color: var(--cor-texto-padrao);
+    color: var(--cor-texto-padrao); /* Cor padrão para o título da seção */
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .tecnologia-introducao {
     font-size: 1.1em;
-    color: #666;
+    color: #666; /* Cor padrão para a introdução da seção */
     max-width: 800px;
     margin: 0 auto 50px auto;
     line-height: 1.8;
@@ -287,13 +286,13 @@ body {
 }
 
 .tecnologia-item {
-    background-color: var(--branco); /* Itens internos continuam brancos */
+    background-color: var(--verde-cartao); /* NOVO: Fundo verde escuro para os itens */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--sombra-leve); /* Sombra nos itens */
     text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--borda-suave); /* Borda para cada item */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda mais clara para contraste */
 }
 
 .tecnologia-item:hover {
@@ -310,22 +309,23 @@ body {
     box-shadow: 0 8px 20px var(--sombra-media); /* Sombra mais visível para a seção */
     padding-top: 50px;
     padding-bottom: 50px;
-    border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda mais clara para contraste */
+    background-color: var(--verde-cartao); /* NOVO: Fundo verde escuro para a seção de contato */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
     max-width: 800px; /* Limita a largura da caixa de contato */
+    color: var(--cor-texto-cartao); /* NOVO: Cor do texto da seção de contato */
 }
 
 .contato-section h2 {
     font-size: 2.5em;
-    color: var(--cor-texto-padrao);
+    color: var(--cor-texto-cartao); /* NOVO: Cor do título da seção de contato */
     margin-bottom: 20px;
     font-family: var(--fonte-titulo);
 }
 
 .contato-section p {
     font-size: 1.1em;
-    color: #666;
+    color: var(--cor-texto-cartao); /* NOVO: Cor do parágrafo da seção de contato */
 }
 
 
@@ -371,7 +371,10 @@ body {
     }
 
     .menu ul {
-        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
         gap: 8px;
         width: 100%;
         text-align: center;
