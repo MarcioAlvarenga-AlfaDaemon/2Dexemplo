@@ -12,7 +12,7 @@
     --borda-suave: #ddd; /* Cor para bordas sutis */
     --sombra-leve: rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     --sombra-media: rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
-    /* Adicionando variáveis para as fontes */
+    /* Variáveis para as fontes, conforme o seu desejo */
     --fonte-principal: 'Open Sans', sans-serif;
     --fonte-titulo: 'Montserrat', sans-serif;
 }
@@ -28,8 +28,9 @@ body {
     color: var(--cor-texto-padrao);
 }
 
+/* Aplicando as fontes nos elementos apropriados */
 h1, h2, h3 {
-    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
+    font-family: var(--fonte-titulo); /* Títulos com Montserrat */
 }
 
 .container {
@@ -61,7 +62,7 @@ h1, h2, h3 {
 /* --- Estilizando o Cabeçalho FIXO --- */
 .cabecalho{
     display: flex;
-    justify-content: center; /* Centraliza o container-header */
+    justify-content: center;
     align-items: center;
     background-color: var(--verde-cabecalho);
     padding: 20px 0;
@@ -77,23 +78,23 @@ h1, h2, h3 {
 .container-header {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 60px; /* AUMENTADO O PADDING HORIZONTAL PARA MAIS ESPAÇAMENTO NAS LATERAIS */
+    padding: 0 60px; /* Mantido o padding lateral para espaçamento */
     display: flex;
-    justify-content: space-between; /* ESSENCIAL: Empurra o primeiro item (título) para a esquerda e o último (menu) para a direita */
+    justify-content: space-between; /* Empurra o título para um lado e o menu para o outro */
     align-items: center;
-    flex-wrap: wrap; /* Permite que o menu quebre em telas menores */
-    width: 100%; /* Garante que o container-header ocupe toda a largura disponível no cabeçalho */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    width: 100%;
 }
 
 .cabecalho__titulo { 
     margin: 0; 
-    font-size: 2.5em; 
+    font-size: 2.5em; /* VOLTOU PARA O TAMANHO ORIGINAL */
     font-weight: 700; 
     color: var(--preto);
-    white-space: nowrap; /* Impede que o título quebre linha em telas grandes */
+    white-space: nowrap; /* Mantém o título em uma linha, se houver espaço */
+    /* Removido font-family aqui para usar o do h1 geral */
 }
 
-/* Se você quiser adicionar uma logo, este é o estilo */
 .cabecalho__logo {
     height: 80px; 
     width: auto;
@@ -106,14 +107,14 @@ h1, h2, h3 {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 35px; /* AUMENTADO O ESPAÇAMENTO ENTRE OS BOTÕES DO MENU */
+    gap: 35px; /* Espaçamento entre os botões */
 }
 
 .menu a {
     font-size: 1.1em;
     color: var(--branco);
     text-decoration: none;
-    padding: 8px 18px; /* AUMENTADO O PADDING NOS BOTÕES PARA DEIXÁ-LOS MAIORES */
+    padding: 8px 18px; /* Padding nos botões */
     transition: all 0.3s ease;
     border: 1px solid var(--branco);
     border-radius: 4px;
@@ -132,7 +133,7 @@ h1, h2, h3 {
     align-items: center;
     text-align: center;
     
-    background-image: url('switzerland-6487204_1920.jpg'); /* Ajustado para ser como nos seus arquivos */
+    background-image: url('switzerland-6487204_1920.jpg'); 
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -164,7 +165,7 @@ h1, h2, h3 {
 }
 
 .principal__titulo {
-    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
+    font-family: var(--fonte-titulo);
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -201,7 +202,7 @@ h1, h2, h3 {
 .intercambio-cultural-titulo,
 .tecnologia-titulo,
 .impacto-economico-titulo {
-    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
+    font-family: var(--fonte-titulo);
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
@@ -249,7 +250,7 @@ h1, h2, h3 {
 }
 
 .item-titulo { 
-    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
+    font-family: var(--fonte-titulo);
     font-size: 1.4em;
     color: var(--verde-cabecalho);
     margin-top: 0;
@@ -283,7 +284,7 @@ h1, h2, h3 {
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
     margin-bottom: 20px;
-    font-family: var(--fonte-titulo); /* Usando a variável de fonte */
+    font-family: var(--fonte-titulo);
 }
 
 .conclusao-texto {
@@ -296,16 +297,16 @@ h1, h2, h3 {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    margin: 50px 0 20px 0; /* Adiciona margem superior para afastar do conteúdo */
+    margin: 50px 0 20px 0;
 }
 
 .rodape {
     text-align: center;
     padding: 20px 0;
-    background-color: var(--fundo-pagina); /* A mesma cor de fundo do body */
+    background-color: var(--fundo-pagina);
     color: var(--cor-texto-padrao);
     font-size: 0.9em;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para destacar */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .rodape p {
@@ -315,49 +316,35 @@ h1, h2, h3 {
 
 /* --- Responsividade Geral --- */
 
-/* Mídias para telas menores (até 767px) */
+/* Mídias para telas menores (até 767px) - GERALMENTE CELULARES */
 @media (max-width: 767px) { 
     body {
-        padding-top: 100px; 
+        padding-top: 100px; /* Ajusta o padding para o cabeçalho menor */
     }
 
     .container-header {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        gap: 15px;
+        flex-direction: column; /* Empilha o título e o menu verticalmente */
+        align-items: center; /* Centraliza os itens empilhados */
+        padding: 15px 20px; /* Ajusta o padding do cabeçalho */
+        gap: 15px; /* Espaçamento entre o título e o menu */
     }
 
-    .cabecalho__titulo { /* Ajuste para o título em telas menores */
-        font-size: 1.8em; /* Reduz o tamanho da fonte em telas menores */
-        margin-bottom: 15px;
+    .cabecalho__titulo { 
+        font-size: 1.8em; /* Reduz o tamanho do título para caber melhor no celular */
+        margin-bottom: 0; /* Remove margem extra inferior */
         text-align: center;
-        white-space: normal; /* Permite quebrar linha em telas menores */
+        white-space: normal; /* Permite que o título quebre linha se for muito longo */
     }
 
+    /* Ocultar a logo se ela existisse e para não atrapalhar */
     .cabecalho__logo { 
-        height: 60px;
-        margin-bottom: 15px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    @media (max-width: 568px) {
-        .cabecalho__logo {
-            display: none;
-        }
-        body {
-            padding-top: 80px; 
-        }
-        .cabecalho {
-             padding: 15px 0; 
-        }
+        display: none; 
     }
 
     .menu ul {
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
+        flex-direction: column; /* Empilha os itens do menu verticalmente */
+        gap: 8px; /* Espaçamento entre os links do menu */
+        width: 100%; /* Ocupa a largura total */
         text-align: center;
     }
 
@@ -366,30 +353,30 @@ h1, h2, h3 {
     }
 
     .menu a {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 10px 0;
+        display: block; /* Faz cada link ocupar a largura total do seu item de lista */
+        width: auto; /* Remove width:100% explícito, deixa o display:block fazer o trabalho */
+        margin: 0 auto; /* Centraliza o botão dentro do item de lista */
+        padding: 10px 0; /* Ajusta o padding vertical dos botões */
         box-sizing: border-box;
     }
 
     .principal {
-        padding: 60px 15px;
+        padding: 60px 15px; /* Reduz o padding vertical e horizontal */
     }
 
     .principal__titulo { 
-        font-size: 2.2em;
+        font-size: 2em; /* Ajusta o tamanho do título principal */
     }
 
     .principal__texto { 
-        font-size: 1em;
+        font-size: 1em; /* Ajusta o tamanho do texto principal */
     }
 
     .principal__botao { 
-        padding: 12px 25px;
+        padding: 12px 25px; /* Ajusta o tamanho do botão principal */
     }
 
-    /* Ajustes para todas as seções principais em mobile */
+    /* Ajustes para todas as seções de conteúdo em mobile */
     .intercambio-cultural-section,
     .tecnologia-section,
     .impacto-economico-section,
@@ -403,20 +390,21 @@ h1, h2, h3 {
     .tecnologia-titulo,
     .impacto-economico-titulo,
     .conclusao-titulo {
-        font-size: 2em;
+        font-size: 1.8em; /* Ajusta o tamanho dos títulos das seções */
     }
 
     .intercambio-cultural-introducao,
     .tecnologia-introducao,
     .impacto-economico-introducao {
-        font-size: 1em;
+        font-size: 0.95em; /* Ajusta o tamanho da introdução */
         margin-bottom: 30px;
     }
 
     .intercambio-cultural-grid,
     .tecnologia-grid,
     .impacto-economico-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Coluna única para itens em mobile */
+        gap: 20px; /* Reduz o espaçamento entre os itens */
     }
 
     .intercambio-cultural-item,
@@ -428,7 +416,11 @@ h1, h2, h3 {
 
     .item-titulo { 
         font-size: 1.2em;
-        min-height: unset;
+        min-height: unset; /* Remove a altura mínima para flexibilidade */
+    }
+
+    .item-descricao {
+        font-size: 0.9em; /* Ajusta o tamanho da descrição */
     }
 
     .conclusao-texto {
@@ -440,25 +432,74 @@ h1, h2, h3 {
     }
 }
 
-@media screen and (min-width: 368px) {
+/* Mídias para tablets (entre 768px e 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        padding-top: 100px; /* Ajusta para cabeçalho um pouco menor em tablet */
+    }
+
+    .container-header {
+        padding: 0 30px; /* Ajusta padding lateral para tablet */
+    }
+
+    .cabecalho__titulo {
+        font-size: 2.2em; /* Um tamanho intermediário para o título */
+    }
+
+    .menu ul {
+        gap: 20px; /* Espaçamento entre os itens do menu no tablet */
+    }
+
+    .menu a {
+        padding: 8px 15px; /* Ajusta padding dos botões */
+    }
+
     .principal {
-        background-image: url('switzerland-6487204_1920.jpg'); /* Corrigido o caminho da imagem */
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding-top: 3.25rem;
+        padding-top: 10rem; 
+        padding-bottom: 10rem;
     }
-}
 
-@media screen and (min-width: 768px) {
+    .principal__titulo {
+        font-size: 2.8rem;
+    }
+
     .principal__texto {
-        max-width: 600px;
+        font-size: 1.15rem;
+    }
+    
+    .intercambio-cultural-section,
+    .tecnologia-section,
+    .impacto-economico-section,
+    .conclusao-section {
+        padding: 60px 25px;
+        margin: 30px auto;
+    }
+
+    .intercambio-cultural-titulo,
+    .tecnologia-titulo,
+    .impacto-economico-titulo,
+    .conclusao-titulo {
+        font-size: 2.2em;
+    }
+
+    .intercambio-cultural-grid,
+    .tecnologia-grid,
+    .impacto-economico-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Pode ter 2 colunas ou mais */
+        gap: 25px;
     }
 }
 
-@media screen and (min-width: 1024px) {
+/* Mídias para telas maiores (1024px e acima) - DESKTOP */
+@media (min-width: 1024px) {
     .container {
-        padding-left: calc((100% - 940px)/2);
-        padding-right: calc((100% - 940px)/2);
+        max-width: 1200px; /* Garante que o container não seja muito grande */
+        padding-left: calc((100% - 1160px)/2); /* Centraliza o conteúdo com mais largura */
+        padding-right: calc((100% - 1160px)/2);
+    }
+    
+    .cabecalho__titulo {
+        font-size: 2.5em; /* Volta ao tamanho original para desktop */
     }
 
     .principal__titulo {
@@ -466,8 +507,24 @@ h1, h2, h3 {
         margin-bottom: 2rem;
     }
     .principal {
-        background-image: url('switzerland-6487204_1920.jpg'); /* Corrigido o caminho da imagem */
+        background-image: url('switzerland-6487204_1920.jpg');
         background-size: cover;
-        padding-top: 3.25rem;
+        padding-top: 12.5rem; /* Mantém o padding original */
+        padding-bottom: 12.5rem; /* Mantém o padding original */
+    }
+    .principal__texto {
+        max-width: 600px;
+    }
+}
+
+/* Mídias para o caminho da imagem de fundo específico, se necessário */
+/* Mantido como estava, mas com aspas simples para URL */
+@media screen and (min-width: 368px) {
+    .principal {
+        background-image: url('switzerland-6487204_1920.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* Remover o padding-top aqui se já estiver definido no .principal geral */
+        /* padding-top: 3.25rem; */ /* Este padding já está em .principal ou nas media queries maiores */
     }
 }
