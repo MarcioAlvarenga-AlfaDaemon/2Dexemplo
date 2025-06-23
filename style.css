@@ -7,7 +7,7 @@
     --cinza-escuro: #5e5d53;
     --cinza-claro:#9c9992;
     --verde-cabecalho: #22a019c4; /* Seu verde com transparência */
-    --fundo-pagina: #f8f8f8; /* Uma cor de fundo suave para o restante da página */
+    --fundo-pagina: #E0FFD1; /* Cor de fundo verde lima! */
     --cor-texto-padrao: #333; /* Cor de texto padrão */
 
     --fonte-principal: 'Open Sans', sans-serif; /* Usando Open Sans */
@@ -20,7 +20,7 @@ body {
     padding: 0; 
     padding-top: 120px; 
     font-family: var(--fonte-principal);
-    background-color: var(--fundo-pagina);
+    background-color: var(--fundo-pagina); /* Usa a nova variável de cor de fundo */
     line-height: 1.6;
     color: var(--cor-texto-padrao);
 }
@@ -179,7 +179,7 @@ body {
 .intercambio-cultural-section {
     padding: 80px 20px;
     text-align: center;
-    background-color: var(--fundo-pagina);
+    background-color: var(--fundo-pagina); /* O fundo desta seção agora também será verde lima */
     margin-bottom: 40px;
 }
 
@@ -208,7 +208,7 @@ body {
 }
 
 .intercambio-cultural-item {
-    background-color: var(--branco);
+    background-color: var(--branco); /* Itens internos continuam brancos */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -238,9 +238,9 @@ body {
 
 /* --- ESTILOS ESPECÍFICOS PARA A SEÇÃO DE TECNOLOGIA --- */
 .tecnologia-section {
-    background-color: var(--fundo-pagina); /* Fundo suave para a seção geral */
-    padding: 80px 20px; /* Mais padding para espaçamento */
-    box-shadow: none; /* Remover sombra da seção principal se o fundo for diferente */
+    background-color: var(--fundo-pagina); /* O fundo desta seção agora também será verde lima */
+    padding: 80px 20px;
+    box-shadow: none;
 }
 
 .tecnologia-titulo {
@@ -268,7 +268,7 @@ body {
 }
 
 .tecnologia-item {
-    background-color: var(--branco);
+    background-color: var(--branco); /* Itens internos continuam brancos */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -286,7 +286,7 @@ body {
     padding: 60px 20px;
     text-align: center;
     margin-bottom: 40px;
-    background-color: var(--branco);
+    background-color: var(--fundo-pagina); /* O fundo desta seção agora também será verde lima */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -346,7 +346,10 @@ body {
     }
 
     .menu ul {
-        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
         gap: 8px;
         width: 100%;
         text-align: center;
