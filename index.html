@@ -23,9 +23,10 @@
                     <li><a href="#conclusao">Conclusão</a></li>
                 </ul>
             </nav>
-            <button class="toggle-cabecalho" id="toggleCabecalho">
-                <i class="fas fa-chevron-up"></i> </button>
         </div>
+        <button class="toggle-cabecalho" id="toggleCabecalho">
+            <i class="fas fa-chevron-up"></i> <span class="toggle-text">Fechar</span>
+        </button>
     </header>
 
     <main>
@@ -133,20 +134,36 @@
             const toggleButton = document.getElementById('toggleCabecalho');
             const cabecalho = document.getElementById('cabecalho');
             const body = document.body;
-            const cabecalhoHeight = cabecalho.offsetHeight; // Altura original do cabeçalho
+            const icon = toggleButton.querySelector('i');
+            const text = toggleButton.querySelector('.toggle-text');
 
-            // Variáveis para armazenar a altura do cabeçalho em diferentes estados
-            let currentCabecalhoHeight = cabecalhoHeight; // Altura atual do cabeçalho
-            let bodyInitialPadding = parseFloat(window.getComputedStyle(body).paddingTop); // Padding inicial do body
+            // Função para calcular a altura real do cabeçalho quando está aberto
+            function getCabecalhoOpenHeight() {
+                // Temporariamente remove a classe de fechado se estiver lá para medir a altura total
+                const wasClosed = cabecalho.classList.contains('cabecalho--fechado');
+                if (wasClosed) {
+                    cabecalho.classList.remove('cabecalho--fechado');
+                    cabecalho.style.transition = 'none'; // Desabilita transição para medição precisa
+                }
+                const height = cabecalho.offsetHeight; // Mede a altura atual
+                if (wasClosed) {
+                    cabecalho.classList.add('cabecalho--fechado'); // Restaura a classe
+                    // Força um reflow para garantir que a transição volte
+                    void cabecalho.offsetHeight; 
+                    cabecalho.style.transition = ''; // Habilita transição novamente
+                }
+                return height;
+            }
 
-            // Função para ajustar o padding do body com base na altura do cabeçalho
+            // Função para ajustar o padding do body
             function adjustBodyPadding() {
                 if (cabecalho.classList.contains('cabecalho--fechado')) {
-                    // Quando fechado, padding do body deve ser pequeno ou zero
-                    body.style.paddingTop = '20px'; // Um padding mínimo para não colar no topo
+                    // Quando fechado, padding do body deve ser a altura do botão fixo
+                    // (A altura do botão fixo é 40px + 10px de top/bottom padding + bordas, digamos 50px)
+                    body.style.paddingTop = '50px'; 
                 } else {
                     // Quando aberto, padding do body deve ser a altura do cabeçalho
-                    body.style.paddingTop = currentCabecalhoHeight + 'px';
+                    body.style.paddingTop = getCabecalhoOpenHeight() + 'px';
                 }
             }
 
@@ -154,14 +171,9 @@
             const resizeObserver = new ResizeObserver(entries => {
                 for (let entry of entries) {
                     if (entry.target === cabecalho) {
-                        // Se a altura do cabeçalho mudou (devido a media queries, etc.)
-                        const newCabecalhoHeight = entry.contentRect.height;
-                        if (currentCabecalhoHeight !== newCabecalhoHeight) {
-                            currentCabecalhoHeight = newCabecalhoHeight;
-                            // Reajusta o padding do body se o cabeçalho estiver aberto
-                            if (!cabecalho.classList.contains('cabecalho--fechado')) {
-                                adjustBodyPadding();
-                            }
+                        // Apenas reajusta o padding se o cabeçalho estiver aberto
+                        if (!cabecalho.classList.contains('cabecalho--fechado')) {
+                            adjustBodyPadding();
                         }
                     }
                 }
@@ -172,23 +184,33 @@
             toggleButton.addEventListener('click', function() {
                 cabecalho.classList.toggle('cabecalho--fechado'); // Alterna a classe que esconde/mostra
 
-                const icon = toggleButton.querySelector('i');
                 if (cabecalho.classList.contains('cabecalho--fechado')) {
                     icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down'); // Muda para seta para baixo
-                    // Quando o cabeçalho estiver fechado, o padding superior do body é mínimo
-                    body.style.paddingTop = '10px'; 
+                    icon.classList.add('fa-bars'); // Ícone de menu (hambúrguer)
+                    text.textContent = 'Menu'; // Texto "Menu"
+                    toggleButton.classList.add('toggle-cabecalho--fixed'); // Adiciona classe para fixar e estilizar
                 } else {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up'); // Muda para seta para cima
-                    // Quando o cabeçalho estiver aberto, o padding superior do body é a altura do cabeçalho
-                    body.style.paddingTop = currentCabecalhoHeight + 'px';
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-chevron-up'); // Ícone de seta para cima
+                    text.textContent = 'Fechar'; // Texto "Fechar"
+                    toggleButton.classList.remove('toggle-cabecalho--fixed'); // Remove classe para voltar ao normal
                 }
+                adjustBodyPadding(); // Ajusta o padding do body após a mudança de estado
             });
 
             // Ajusta o padding inicial do body para a altura do cabeçalho ao carregar
-            // Este ajuste inicial é importante para garantir que o conteúdo não fique escondido sob o cabeçalho
-            body.style.paddingTop = currentCabecalhoHeight + 'px';
+            // E garante que o botão comece no estado correto
+            adjustBodyPadding();
+            // A classe 'toggle-cabecalho--fixed' só será adicionada se começar fechado (o que não é o padrão)
+            // Se começar aberto, ela não deve estar lá.
+            if (!cabecalho.classList.contains('cabecalho--fechado')) {
+                 toggleButton.classList.remove('toggle-cabecalho--fixed');
+            } else {
+                 toggleButton.classList.add('toggle-cabecalho--fixed');
+                 icon.classList.remove('fa-chevron-up');
+                 icon.classList.add('fa-bars');
+                 text.textContent = 'Menu';
+            }
         });
     </script>
 </body>

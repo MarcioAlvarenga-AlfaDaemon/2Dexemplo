@@ -63,7 +63,7 @@ h1, h2, h3 {
 /* --- Estilizando o Cabeçalho FIXO --- */
 .cabecalho{
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centraliza o container-header */
     align-items: center;
     background-color: var(--verde-cabecalho);
     padding: 20px 0;
@@ -74,16 +74,15 @@ h1, h2, h3 {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, height 0.3s ease, padding 0.3s ease; /* Transições para suavizar o toggle */
-    /* height: auto;  Vai ser ajustado pelo JS/conteúdo */
+    transition: transform 0.3s ease; /* Transição apenas para o transform */
     overflow: hidden; /* Garante que o conteúdo que está sendo "escondido" não apareça */
+    flex-direction: column; /* Para empilhar o container-header e o botão */
 }
 
 /* Classe para quando o cabeçalho estiver fechado */
 .cabecalho--fechado {
-    transform: translateY(calc(-100% + 20px)); /* Desliza para cima, deixando 20px visíveis (altura do botão) */
-    /* height: 20px; /* Altura mínima quando fechado, ajuste conforme o botão */
-    /* padding: 0; */ /* Remove padding quando fechado para ajudar na altura */
+    transform: translateY(calc(-100% + 40px)); /* Desliza para cima, deixando o espaço do botão (40px) */
+    padding: 0; /* Remove padding quando fechado para ajudar na altura */
 }
 
 .container-header {
@@ -95,8 +94,18 @@ h1, h2, h3 {
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    position: relative; /* Para posicionar o botão de toggle */
+    /* Removido position: relative; pois o botão toggle agora é fixed */
+    transition: opacity 0.3s ease; /* Para sumir/aparecer suavemente */
 }
+
+/* Quando o cabeçalho está fechado, o menu e o título desaparecem */
+.cabecalho--fechado .container-header {
+    opacity: 0;
+    pointer-events: none; /* Desabilita interações com o menu/título escondido */
+    height: 0; /* Garante que não ocupe espaço */
+    overflow: hidden;
+}
+
 
 .cabecalho__titulo { 
     margin: 0; 
@@ -142,7 +151,7 @@ h1, h2, h3 {
     background-color: var(--verde-cabecalho); /* Mesmo fundo do cabeçalho */
     color: var(--branco);
     border: 1px solid var(--branco);
-    border-radius: 50%; /* Faz um círculo */
+    border-radius: 50%; /* Faz um círculo por padrão */
     width: 40px;
     height: 40px;
     display: flex;
@@ -150,42 +159,55 @@ h1, h2, h3 {
     align-items: center;
     font-size: 1.2em;
     cursor: pointer;
-    position: absolute; /* Posição absoluta dentro do container-header */
-    top: 50%; /* Centraliza verticalmente */
+    position: absolute; /* Posição absoluta dentro do header */
+    top: 20px; /* Alinha com o padding top do cabeçalho */
     right: 20px; /* Distância da borda direita */
-    transform: translateY(-50%); /* Ajuste fino para centralizar */
     box-shadow: 0 2px 5px var(--sombra-media);
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    z-index: 1001; /* Garante que esteja acima do menu se houver sobreposição */
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, border-radius 0.3s ease, width 0.3s ease, height 0.3s ease, top 0.3s ease, right 0.3s ease;
+    z-index: 1001; /* Garante que esteja acima de tudo */
+    text-align: center;
+    overflow: hidden; /* Para esconder o texto quando é só ícone */
+    padding: 0; /* Remover padding padrão do botão */
 }
+
+.toggle-cabecalho i {
+    flex-shrink: 0; /* Evita que o ícone encolha */
+}
+
+.toggle-cabecalho .toggle-text {
+    display: none; /* Por padrão, o texto não aparece */
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    margin-left: 5px; /* Pequena margem entre ícone e texto */
+}
+
 
 .toggle-cabecalho:hover {
     background-color: #0056b3; /* Cor de hover */
-    transform: translateY(-50%) scale(1.05); /* Pequeno efeito de escala */
+    transform: scale(1.05); /* Pequeno efeito de escala */
 }
 
-/* Ajusta a posição do botão quando o cabeçalho está fechado para que ele permaneça visível */
-.cabecalho--fechado .toggle-cabecalho {
-    position: fixed; /* Mudar para fixed para que ele fique no topo da tela */
-    top: 0px; /* No topo da tela */
-    right: 20px; /* Na direita */
-    transform: none; /* Resetar a transformação para que top/right funcionem como esperado */
-    border-radius: 0 0 5px 5px; /* Arredondar só a parte de baixo */
-    width: 60px; /* Um pouco mais largo */
-    height: 20px; /* Mais baixo */
-    background-color: #0056b3; /* Uma cor diferente para indicar que está "escondido" */
-    font-size: 0.9em;
-    padding-top: 5px;
+/* Estilo para o botão quando o cabeçalho está fechado (fixed e expandido) */
+.toggle-cabecalho--fixed {
+    position: fixed; /* Fixa na viewport */
+    top: 0; /* Alinha no topo da tela */
+    right: 0; /* Alinha na direita da tela */
+    width: 100px; /* Largura maior para caber texto */
+    height: 40px; /* Altura padrão ou um pouco mais */
+    border-radius: 0 0 0 10px; /* Arredonda só o canto inferior esquerdo */
+    background-color: #0056b3; /* Cor sólida e diferente */
+    font-size: 1em; /* Tamanho da fonte menor para o texto */
+    padding: 0 10px; /* Padding horizontal para o conteúdo */
+    justify-content: center; /* Centraliza conteúdo (ícone + texto) */
 }
 
-
-/* Quando o cabeçalho está fechado, o menu e o título desaparecem */
-.cabecalho--fechado .menu,
-.cabecalho--fechado .cabecalho__titulo {
-    opacity: 0;
-    pointer-events: none; /* Desabilita interações com o menu/título escondido */
-    transition: opacity 0.3s ease;
+.toggle-cabecalho--fixed .toggle-text {
+    display: inline-block; /* Mostra o texto quando fixo */
 }
+
+.toggle-cabecalho--fixed:hover {
+    transform: none; /* Remove a escala no hover quando fixo */
+}
+
 
 /* --- Estilizando a Seção Principal com Imagem de Fundo e Transparência --- */
 .principal {
@@ -380,7 +402,7 @@ h1, h2, h3 {
 /* Mídias para telas menores (até 767px) - GERALMENTE CELULARES */
 @media (max-width: 767px) { 
     body {
-        padding-top: 100px; /* Padding inicial para mobile, será ajustado pelo JS */
+        padding-top: 50px; /* Padding inicial para mobile, será ajustado pelo JS */
     }
 
     .container-header {
@@ -493,17 +515,28 @@ h1, h2, h3 {
 
     /* Ajustes para o botão de toggle em mobile */
     .toggle-cabecalho {
-        right: 15px; /* Ajusta a posição no mobile */
-        width: 35px;
-        height: 35px;
+        position: fixed; /* Mudar para fixed em mobile */
+        top: 0px;
+        right: 0px;
+        width: 100px; /* Largura maior para caber o texto "Menu" */
+        height: 40px;
+        border-radius: 0 0 0 10px; /* Arredonda só o canto inferior esquerdo */
+        background-color: #0056b3; /* Fundo mais escuro para destaque */
         font-size: 1em;
+        padding: 0 10px;
+    }
+    
+    .toggle-cabecalho .toggle-text {
+        display: inline-block; /* Mostra o texto em mobile */
     }
 
-    .cabecalho--fechado .toggle-cabecalho {
-        right: 15px;
-        width: 50px;
-        height: 20px;
-        font-size: 0.8em;
+    .toggle-cabecalho i {
+        display: inline-block; /* Garante que o ícone também seja exibido */
+    }
+
+    /* Remove a transformação no hover para o botão fixo em mobile */
+    .toggle-cabecalho:hover {
+        transform: none;
     }
 }
 
@@ -564,9 +597,15 @@ h1, h2, h3 {
         gap: 25px;
     }
 
-    /* Ajustes para o botão de toggle em tablet */
+    /* O botão de toggle se comporta como em desktop, mas o estilo para 'fixed' será aplicado se o cabeçalho for fechado */
     .toggle-cabecalho {
-        right: 20px; /* Mantém a posição padrão */
+        position: absolute; /* Posição absoluta por padrão */
+        top: 20px;
+        right: 20px;
+    }
+    
+    .toggle-cabecalho .toggle-text {
+        display: none; /* Texto não aparece em tablets quando cabeçalho está aberto */
     }
 }
 
@@ -594,6 +633,17 @@ h1, h2, h3 {
     }
     .principal__texto {
         max-width: 600px;
+    }
+
+    /* O botão de toggle se comporta como em desktop por padrão */
+    .toggle-cabecalho {
+        position: absolute; /* Posição absoluta por padrão */
+        top: 20px;
+        right: 20px;
+    }
+    
+    .toggle-cabecalho .toggle-text {
+        display: none; /* Texto não aparece em desktop quando cabeçalho está aberto */
     }
 }
 
