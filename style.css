@@ -12,6 +12,7 @@
     --borda-suave: #ddd; /* Cor para bordas sutis */
     --sombra-leve: rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     --sombra-media: rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
+    /* --verde-cartao e --cor-texto-cartao foram removidas para manter cartões brancos */
 }
 
 /* --- Reset Básico e Estilos Globais --- */
@@ -175,79 +176,8 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* --- NOVOS ESTILOS PARA A SEÇÃO DE INTERCÂMBIO CULTURAL --- */
-.intercambio-cultural-section {
-    padding: 80px 20px;
-    text-align: center;
-    background-color: var(--fundo-pagina); /* Fundo da seção continua o verde lima */
-    margin-bottom: 40px;
-    /* Adicionado para dar um "recuo" e destaque ao bloco da seção */
-    border-radius: 10px;
-    box-shadow: 0 8px 20px var(--sombra-media); /* Sombra mais visível para a seção */
-    padding-top: 50px; /* Ajusta o padding para compensar a sombra e borda */
-    padding-bottom: 50px;
-    border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção, se desejar que ela seja uma "caixa" */
-    margin: 40px auto; /* Centraliza a caixa no meio da página */
-    max-width: 1100px; /* Limita a largura da caixa */
-
-}
-
-.intercambio-cultural-titulo {
-    font-family: var(--fonte-titulo);
-    font-size: 2.5em;
-    color: var(--cor-texto-padrao);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.intercambio-cultural-introducao {
-    font-size: 1.1em;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    line-height: 1.8;
-}
-
-.intercambio-cultural-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px; /* Mantém largura total para a grid interna */
-    margin: 0 auto;
-}
-
-.intercambio-cultural-item {
-    background-color: var(--branco); /* Itens internos continuam brancos */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px var(--sombra-leve); /* Sombra nos itens */
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--borda-suave); /* Borda para cada item */
-}
-
-.intercambio-cultural-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px var(--sombra-media);
-}
-
-.item-titulo { /* Compartilhado entre Intercâmbio e Tecnologia */
-    font-family: var(--fonte-titulo);
-    font-size: 1.4em;
-    color: var(--verde-cabecalho);
-    margin-top: 0;
-    margin-bottom: 15px;
-    min-height: 2.8em;
-}
-
-.item-descricao { /* Compartilhado entre Intercâmbio e Tecnologia */
-    font-size: 0.95em;
-    color: #555;
-    line-height: 1.7;
-}
-
-/* --- ESTILOS ESPECÍFICOS PARA A SEÇÃO DE TECNOLOGIA --- */
+/* --- ESTILOS PARA AS SEÇÕES PRINCIPAIS (Intercâmbio Cultural e Tecnologia) --- */
+.intercambio-cultural-section,
 .tecnologia-section {
     padding: 80px 20px;
     text-align: center;
@@ -257,11 +187,12 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção, se desejar que ela seja uma "caixa" */
+    background-color: var(--branco); /* Fundo branco para a seção, como originalmente */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
     max-width: 1100px; /* Limita a largura da caixa */
 }
 
+.intercambio-cultural-titulo,
 .tecnologia-titulo {
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
@@ -270,6 +201,7 @@ body {
     text-transform: uppercase;
 }
 
+.intercambio-cultural-introducao,
 .tecnologia-introducao {
     font-size: 1.1em;
     color: #666;
@@ -278,6 +210,8 @@ body {
     line-height: 1.8;
 }
 
+/* --- ESTILOS PARA OS ITENS DA GRID (Cartões) --- */
+.intercambio-cultural-grid,
 .tecnologia-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -286,8 +220,9 @@ body {
     margin: 0 auto;
 }
 
+.intercambio-cultural-item,
 .tecnologia-item {
-    background-color: var(--branco); /* Itens internos continuam brancos */
+    background-color: var(--branco); /* Voltou a ser branco */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--sombra-leve); /* Sombra nos itens */
@@ -296,13 +231,29 @@ body {
     border: 1px solid var(--borda-suave); /* Borda para cada item */
 }
 
+.intercambio-cultural-item:hover,
 .tecnologia-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px var(--sombra-media);
 }
 
-/* --- Estilos para a seção de Contato (simples) --- */
-.contato-section {
+.item-titulo { /* Compartilhado entre Intercâmbio e Tecnologia */
+    font-family: var(--fonte-titulo);
+    font-size: 1.4em;
+    color: var(--verde-cabecalho); /* Cor original do título do item */
+    margin-top: 0;
+    margin-bottom: 15px;
+    min-height: 2.8em;
+}
+
+.item-descricao { /* Compartilhado entre Intercâmbio e Tecnologia */
+    font-size: 0.95em;
+    color: #555; /* Cor original da descrição do item */
+    line-height: 1.7;
+}
+
+/* --- NOVOS ESTILOS PARA A SEÇÃO DE CONCLUSÃO --- */
+.conclusao-section {
     padding: 60px 20px;
     text-align: center;
     margin-bottom: 40px;
@@ -311,21 +262,22 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção */
+    background-color: var(--branco); /* Fundo branco para a seção de conclusão */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
-    max-width: 800px; /* Limita a largura da caixa de contato */
+    max-width: 800px; /* Limita a largura da caixa de conclusão */
+    color: var(--cor-texto-padrao); /* Cor do texto da seção de conclusão */
 }
 
-.contato-section h2 {
+.conclusao-titulo {
     font-size: 2.5em;
-    color: var(--cor-texto-padrao);
+    color: var(--cor-texto-padrao); /* Cor do título da seção de conclusão */
     margin-bottom: 20px;
     font-family: var(--fonte-titulo);
 }
 
-.contato-section p {
+.conclusao-texto {
     font-size: 1.1em;
-    color: #666;
+    color: #666; /* Cor do parágrafo da seção de conclusão */
 }
 
 
@@ -371,7 +323,10 @@ body {
     }
 
     .menu ul {
-        flex-direction: column;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
         gap: 8px;
         width: 100%;
         text-align: center;
@@ -460,13 +415,14 @@ body {
         box-shadow: 0 2px 8px var(--sombra-leve); /* Sombra mais leve nos itens em mobile */
     }
 
-    .contato-section {
+    /* Ajustes para a nova seção de conclusão em mobile */
+    .conclusao-section {
         padding: 40px 15px;
         margin: 20px auto; /* Reduz margin em mobile */
         box-shadow: 0 4px 10px var(--sombra-leve); /* Sombra mais leve em mobile */
     }
 
-    .contato-section h2 {
+    .conclusao-section h2 {
         font-size: 2em;
     }
 }
