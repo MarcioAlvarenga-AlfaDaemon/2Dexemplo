@@ -12,7 +12,6 @@
     --borda-suave: #ddd; /* Cor para bordas sutis */
     --sombra-leve: rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     --sombra-media: rgba(0, 0, 0, 0.2); /* Sombra um pouco mais forte */
-    /* --verde-cartao e --cor-texto-cartao foram removidas para manter cartões brancos */
 }
 
 /* --- Reset Básico e Estilos Globais --- */
@@ -176,9 +175,10 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* --- ESTILOS PARA AS SEÇÕES PRINCIPAIS (Intercâmbio Cultural e Tecnologia) --- */
+/* --- ESTILOS PARA AS SEÇÕES PRINCIPAIS (Intercâmbio Cultural, Tecnologia, Impacto Econômico) --- */
 .intercambio-cultural-section,
-.tecnologia-section {
+.tecnologia-section,
+.impacto-economico-section { /* Adicionado impacto-economico-section aqui */
     padding: 80px 20px;
     text-align: center;
     margin-bottom: 40px;
@@ -187,13 +187,14 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     border: 1px solid var(--borda-suave); /* Borda suave */
-    background-color: var(--branco); /* Fundo branco para a seção, como originalmente */
+    background-color: var(--branco); /* Fundo branco para as seções */
     margin: 40px auto; /* Centraliza a caixa no meio da página */
     max-width: 1100px; /* Limita a largura da caixa */
 }
 
 .intercambio-cultural-titulo,
-.tecnologia-titulo {
+.tecnologia-titulo,
+.impacto-economico-titulo { /* Adicionado impacto-economico-titulo aqui */
     font-family: var(--fonte-titulo);
     font-size: 2.5em;
     color: var(--cor-texto-padrao);
@@ -202,7 +203,8 @@ body {
 }
 
 .intercambio-cultural-introducao,
-.tecnologia-introducao {
+.tecnologia-introducao,
+.impacto-economico-introducao { /* Adicionado impacto-economico-introducao aqui */
     font-size: 1.1em;
     color: #666;
     max-width: 800px;
@@ -212,7 +214,8 @@ body {
 
 /* --- ESTILOS PARA OS ITENS DA GRID (Cartões) --- */
 .intercambio-cultural-grid,
-.tecnologia-grid {
+.tecnologia-grid,
+.impacto-economico-grid { /* Adicionado impacto-economico-grid aqui */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
@@ -221,8 +224,9 @@ body {
 }
 
 .intercambio-cultural-item,
-.tecnologia-item {
-    background-color: var(--branco); /* Voltou a ser branco */
+.tecnologia-item,
+.impacto-economico-item { /* Adicionado impacto-economico-item aqui */
+    background-color: var(--branco); /* Fundo branco para os itens */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--sombra-leve); /* Sombra nos itens */
@@ -232,27 +236,28 @@ body {
 }
 
 .intercambio-cultural-item:hover,
-.tecnologia-item:hover {
+.tecnologia-item:hover,
+.impacto-economico-item:hover { /* Adicionado impacto-economico-item:hover aqui */
     transform: translateY(-5px);
     box-shadow: 0 6px 20px var(--sombra-media);
 }
 
-.item-titulo { /* Compartilhado entre Intercâmbio e Tecnologia */
+.item-titulo { /* Compartilhado entre todas as seções de itens */
     font-family: var(--fonte-titulo);
     font-size: 1.4em;
-    color: var(--verde-cabecalho); /* Cor original do título do item */
+    color: var(--verde-cabecalho);
     margin-top: 0;
     margin-bottom: 15px;
     min-height: 2.8em;
 }
 
-.item-descricao { /* Compartilhado entre Intercâmbio e Tecnologia */
+.item-descricao { /* Compartilhado entre todas as seções de itens */
     font-size: 0.95em;
-    color: #555; /* Cor original da descrição do item */
+    color: #555;
     line-height: 1.7;
 }
 
-/* --- NOVOS ESTILOS PARA A SEÇÃO DE CONCLUSÃO --- */
+/* --- ESTILOS PARA A SEÇÃO DE CONCLUSÃO --- */
 .conclusao-section {
     padding: 60px 20px;
     text-align: center;
@@ -270,14 +275,14 @@ body {
 
 .conclusao-titulo {
     font-size: 2.5em;
-    color: var(--cor-texto-padrao); /* Cor do título da seção de conclusão */
+    color: var(--cor-texto-padrao);
     margin-bottom: 20px;
     font-family: var(--fonte-titulo);
 }
 
 .conclusao-texto {
     font-size: 1.1em;
-    color: #666; /* Cor do parágrafo da seção de conclusão */
+    color: #666;
 }
 
 
@@ -293,14 +298,14 @@ body {
         flex-direction: column;
         align-items: center;
         padding: 20px;
-        gap: 15px; /* Reduz o gap em telas menores para melhor aproveitamento do espaço */
+        gap: 15px;
     }
 
     .cabecalho h1 {
         font-size: 1.4em;
         margin-bottom: 15px;
         text-align: center;
-        padding-right: 0; /* Remove o padding extra em telas menores */
+        padding-right: 0;
     }
 
     .cabecalho__logo { 
@@ -323,10 +328,7 @@ body {
     }
 
     .menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
+        flex-direction: column; /* Coloca os itens do menu em coluna */
         gap: 8px;
         width: 100%;
         text-align: center;
@@ -360,70 +362,50 @@ body {
         padding: 12px 25px;
     }
 
-    /* Ajustes para a nova seção de intercâmbio cultural em mobile */
-    .intercambio-cultural-section {
+    /* Ajustes para todas as seções principais em mobile */
+    .intercambio-cultural-section,
+    .tecnologia-section,
+    .impacto-economico-section, /* Adicionado impacto-economico-section aqui */
+    .conclusao-section {
         padding: 40px 15px;
-        margin: 20px auto; /* Reduz margin em mobile */
-        box-shadow: 0 4px 10px var(--sombra-leve); /* Sombra mais leve em mobile */
+        margin: 20px auto;
+        box-shadow: 0 4px 10px var(--sombra-leve);
     }
 
-    .intercambio-cultural-titulo {
+    .intercambio-cultural-titulo,
+    .tecnologia-titulo,
+    .impacto-economico-titulo, /* Adicionado impacto-economico-titulo aqui */
+    .conclusao-titulo {
         font-size: 2em;
     }
 
-    .intercambio-cultural-introducao {
+    .intercambio-cultural-introducao,
+    .tecnologia-introducao,
+    .impacto-economico-introducao { /* Adicionado impacto-economico-introducao aqui */
         font-size: 1em;
         margin-bottom: 30px;
     }
 
-    .intercambio-cultural-grid {
+    .intercambio-cultural-grid,
+    .tecnologia-grid,
+    .impacto-economico-grid { /* Adicionado impacto-economico-grid aqui */
         grid-template-columns: 1fr;
     }
 
-    .intercambio-cultural-item {
+    .intercambio-cultural-item,
+    .tecnologia-item,
+    .impacto-economico-item { /* Adicionado impacto-economico-item aqui */
         padding: 20px;
-        box-shadow: 0 2px 8px var(--sombra-leve); /* Sombra mais leve nos itens em mobile */
+        box-shadow: 0 2px 8px var(--sombra-leve);
     }
 
-    .item-titulo { /* Ajuste global para itens em mobile */
+    .item-titulo { 
         font-size: 1.2em;
         min-height: unset;
     }
 
-    /* Ajustes para a seção de tecnologia em mobile */
-    .tecnologia-section {
-        padding: 40px 15px;
-        margin: 20px auto; /* Reduz margin em mobile */
-        box-shadow: 0 4px 10px var(--sombra-leve); /* Sombra mais leve em mobile */
-    }
-
-    .tecnologia-titulo {
-        font-size: 2em;
-    }
-
-    .tecnologia-introducao {
+    .conclusao-texto {
         font-size: 1em;
-        margin-bottom: 30px;
-    }
-
-    .tecnologia-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .tecnologia-item {
-        padding: 20px;
-        box-shadow: 0 2px 8px var(--sombra-leve); /* Sombra mais leve nos itens em mobile */
-    }
-
-    /* Ajustes para a nova seção de conclusão em mobile */
-    .conclusao-section {
-        padding: 40px 15px;
-        margin: 20px auto; /* Reduz margin em mobile */
-        box-shadow: 0 4px 10px var(--sombra-leve); /* Sombra mais leve em mobile */
-    }
-
-    .conclusao-section h2 {
-        font-size: 2em;
     }
 }
 
